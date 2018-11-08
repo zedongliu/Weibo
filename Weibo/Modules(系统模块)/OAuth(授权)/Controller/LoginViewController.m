@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "RootViewController.h"
+#import "LoginView.h"
 
 @interface LoginViewController ()
 
@@ -17,9 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:@"首页"];
 }
 
+- (void)initUI{
+    LoginView *loginView = [[LoginView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    [self.view addSubview:loginView];
+    
+    [loginView.loginBtn addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+
+#pragma mark - Action
+-(void)loginClick:(UIButton*)sender{
+    [self pushToVC:@"RootViewController" withConstruction:^(__kindof BaseViewController * _Nonnull vc) {
+        
+    }];
+}
 /*
 #pragma mark - Navigation
 

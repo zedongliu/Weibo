@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-//#import "UIAlertController.h"
+#import "RefreshHeaderView.h"
 
 @interface BaseViewController ()<UINavigationControllerDelegate>
 
@@ -480,13 +480,13 @@ withConstruction:(BlockConstruction)blockConstruction
  */
 - (void)addRefreshHeader:(UITableView *)tableView
 {
-//    __weak typeof(self) weakSelf = self;
-//    ZJKJRefreshHeaderView *header = [ZJKJRefreshHeaderView headerWithRefreshingBlock:^{
-//        weakSelf.pageBase = 1;
-//        [weakSelf getBaseDataMethod];
-//    }];
-//    tableView.mj_header = header;
-//    self.scrollViewBase = tableView;
+    __weak typeof(self) weakSelf = self;
+    RefreshHeaderView *header = [RefreshHeaderView headerWithRefreshingBlock:^{
+        weakSelf.pageBase = 1;
+        [weakSelf getBaseDataMethod];
+    }];
+    tableView.mj_header = header;
+    self.scrollViewBase = tableView;
 }
 ///添加上拉
 - (void)addRefreshFooter:(UITableView *)tableView

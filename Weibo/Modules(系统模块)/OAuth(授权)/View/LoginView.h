@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginView : BaseView
 
+@property (nonatomic ,strong) UITextField *account;
+@property (nonatomic ,strong) UITextField *password;
+@property (nonatomic ,strong) UIButton *loginBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END

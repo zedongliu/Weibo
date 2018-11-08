@@ -10,6 +10,30 @@
 
 @implementation BaseView
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if(self = [super initWithFrame:frame])
+    {
+        [self initUI];
+    }
+    return self;
+}
+
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    [self initUIAfterMoveToSuperView];
+}
+
+- (void)initUI
+{
+    
+}
+
+- (void)initUIAfterMoveToSuperView
+{
+    
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

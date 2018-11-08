@@ -19,6 +19,8 @@
 #define FONT_12  12
 #define FONT_15  15
 #define FONT_18  18
+#define FONT_21  21
+#define FONT_25  25
 #define FONT_32  32
 
 #endif /* GlobalFont_h */

@@ -20,6 +20,10 @@
 #import "GlobalUrl.h"
 #import "GlobalHeight.h"
 
+//macros
+#import "DeviceMacros.h"
+#import "CommonMacros.h"
+
 //category
 #import "UIColor+Convenience.h"
 //#import "UIView+Gradient.h"

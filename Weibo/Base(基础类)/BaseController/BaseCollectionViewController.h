@@ -10,7 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseCollectionViewController : UICollectionViewController
+@interface BaseCollectionViewController : BaseViewController<
+UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout
+>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+@property (nonatomic, strong) NSArray *arrDataSource;
+
+- (void)initData;
+- (void)initUI;
 
 @end
 

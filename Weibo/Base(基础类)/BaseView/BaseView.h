@@ -12,6 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseView : UIView
 
+/**
+ 创建UI 默认调用 需要重写
+ */
+- (void)initUI;
+///添加到父视图
+- (void)initUIAfterMoveToSuperView;
+
 @end
 
 NS_ASSUME_NONNULL_END

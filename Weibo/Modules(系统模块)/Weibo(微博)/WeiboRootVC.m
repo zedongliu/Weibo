@@ -1,23 +1,22 @@
 //
-//  RootViewController.m
+//  WeiboRootViewController.m
 //  Weibo
 //
-//  Created by liuzedong on 2018/11/6.
+//  Created by liuzedong on 2018/12/19.
 //  Copyright © 2018 liuzedong. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "WeiboRootVC.h"
 
-@interface RootViewController ()
+@interface WeiboRootVC ()
 
 @end
 
-@implementation RootViewController
+@implementation WeiboRootVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:COLOR_WHITE];
 }
 
 /*

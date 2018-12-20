@@ -57,15 +57,9 @@
 - (void)loadTheView{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-//    BOOL ceshiEve = [UserDefault boolOfKey:kBOOLIsCeshiEve];
-    
-//    if (true){//(G_SHAREINSTANCETYPE_USER.isLogin && !ceshiEve) {
-//        RootViewController *navi = [[RootViewController alloc]init];
-//        self.window.rootViewController = navi;
-//    }else{
-        BaseNavigationController *loginVC = [[BaseNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
-        self.window.rootViewController = loginVC;
-//    }
+
+    BaseNavigationController *loginVC = [[BaseNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
+    self.window.rootViewController = loginVC;
     
     [self.window makeKeyAndVisible];
 }

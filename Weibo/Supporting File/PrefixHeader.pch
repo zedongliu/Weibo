@@ -11,6 +11,7 @@
 
 //tools
 #import "HttpRequest.h"
+#import "UserDefault.h"
 
 //global
 #import "GlobalEnum.h"

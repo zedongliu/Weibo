@@ -48,10 +48,10 @@
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
-    [self setupChildVC:@"微博" andImage:@"tabbar_home" andSelectImage:@"tabbar_home_selected"];
-    [self setupChildVC:@"消息" andImage:@"tabbar_message_center" andSelectImage:@"tabbar_message_center_selected"];
-    [self setupChildVC:@"发现" andImage:@"tabbar_discover" andSelectImage:@"tabbar_discover_selected"];
-    [self setupChildVC:@"我" andImage:@"tabbar_profile" andSelectImage:@"tabbar_profile_selected"];
+    [self setupChildVC: [[WeiboRootVC alloc]init] withTitle:@"微博" andImage:@"tabbar_home" andSelectImage:@"tabbar_home_selected"];
+    [self setupChildVC: [[MessageRootVC alloc]init] withTitle:@"消息" andImage:@"tabbar_message_center" andSelectImage:@"tabbar_message_center_selected"];
+    [self setupChildVC: [[FindRootVC alloc]init] withTitle:@"发现" andImage:@"tabbar_discover" andSelectImage:@"tabbar_discover_selected"];
+    [self setupChildVC: [[PersonalRootVC alloc]init] withTitle:@"我" andImage:@"tabbar_profile" andSelectImage:@"tabbar_profile_selected"];
     
   
 }
@@ -59,8 +59,7 @@
 /**
  * 初始化子控制器
  */
-- (void)setupChildVC:(NSString * )title andImage:(NSString * )image andSelectImage:(NSString *)selectImage{
-    UIViewController * VC = [[UIViewController alloc]init];
+- (void)setupChildVC:(BaseViewController *)VC withTitle:(NSString * )title andImage:(NSString * )image andSelectImage:(NSString *)selectImage{
     VC.tabBarItem.title = title;
     VC.tabBarItem.image = [UIImage imageNamed:image];
     VC.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];

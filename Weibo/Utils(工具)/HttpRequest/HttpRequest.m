@@ -39,23 +39,15 @@
 }
 
 //get
-+(void)doGetWithURL:(NSString *)url withParams:(NSDictionary *)params withType:(NSInteger)type success:(successBlock)done failure:(errorBlock)fail
++(void)doGetWithURL:(NSString *)url withParams:(NSDictionary *)params success:(successBlock)done failure:(errorBlock)fail
 {
     AFHTTPSessionManager *manage = [HttpRequest sharedHttpRequest];
-    NSString *formedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
+
     manage.requestSerializer.stringEncoding = NSUTF8StringEncoding;
     manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"text/json",@"text/plain",@"image/jpeg",@"image/png",nil];
-    
     manage.requestSerializer.timeoutInterval = k_HttpRequest_Timeout;
     
-    if (type != REQ_TYPE_LOGIN) {
-        AFJSONRequestSerializer *serial = [AFJSONRequestSerializer serializer];
-        [serial setValue:[UserDefault stringOfKey:kStringUserId] forHTTPHeaderField:@"userId"];
-        manage.requestSerializer = serial;
-    }
-    
-//    BOOL ceshiEve = [UserDefault boolOfKey:kBOOLIsCeshiEve];
+    NSString *formedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *baseUrl = BASE_URL;
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",baseUrl,formedUrl];
     NSLog(@"doGetWithURL:%@",requestUrl);
@@ -79,21 +71,8 @@
          }
          
          Response *result = [Response mj_objectWithKeyValues:responseObject];
-//         if(result.code==ResponseCode400 ||result.code==ResponseCode401){
-//
-//             if(result.code==ResponseCode401){
-//
-//                 [SVProgressHUD showErrorWithStatus:@"您的账号在别处登录！"];
-//                 [SVProgressHUD dismissWithDelay:1.5];
-//             }
-//             //跳转登录页面
-//             BaseNavigationController *loginVC = [[BaseNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
-//             UIWindow *window= [UIApplication sharedApplication].keyWindow;
-//             window.rootViewController = loginVC;
-//             [window makeKeyAndVisible];
-//         }else{
-             done(task,responseObject,result);
-//         }
+
+         done(task,responseObject,result);
          
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
      {
@@ -112,16 +91,13 @@
 
 
 //post
-+(void)doPostWithURL:(NSString *)url withParams:(NSDictionary *)params withType:(NSInteger)type success:(successBlock)done failure:(errorBlock)fail
++(void)doPostWithURL:(NSString *)url withParams:(NSDictionary *)params success:(successBlock)done failure:(errorBlock)fail
 {
     AFHTTPSessionManager *manage = [HttpRequest sharedHttpRequest];
-    
-    NSString *formedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
     manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", @"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",@"text/plain",@"text/javascript",nil];
     manage.requestSerializer.timeoutInterval = k_HttpRequest_Timeout;
     
-//    BOOL ceshiEve = [UserDefault boolOfKey:kBOOLIsCeshiEve];
+    NSString *formedUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *baseUrl = BASE_URL;
     NSString *requestUrl = [NSString stringWithFormat:@"%@%@",baseUrl,formedUrl];
     NSLog(@"doGetWithURL:%@",requestUrl);
@@ -145,22 +121,7 @@
              NSLog(@"Response:%@",responseObject);
          }
          Response *result = [Response mj_objectWithKeyValues:responseObject];
-//         if(result.code==ResponseCode400 ||
-//            result.code==ResponseCode401){
-//
-//             if(result.code==ResponseCode401){
-//
-//                 [SVProgressHUD showErrorWithStatus:@"您的账号在别处登录！"];
-//                 [SVProgressHUD dismissWithDelay:1.5];
-//             }
-//             //跳转登录页面
-//             BaseNavigationController *loginVC = [[BaseNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
-//             UIWindow *window= [UIApplication sharedApplication].keyWindow;
-//             window.rootViewController = loginVC;
-//             [window makeKeyAndVisible];
-//         }else{
-             done(task,responseObject,result);
-//         }
+         done(task,responseObject,result);
          
      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
          

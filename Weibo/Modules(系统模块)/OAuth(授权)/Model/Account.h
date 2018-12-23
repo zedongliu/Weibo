@@ -36,14 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *uid;
 
 /**
+ *  账号的有效期
+ */
+@property (nonatomic, copy) NSString *remind_in;
+/**
  *   过期时间 = 当前保存时间+有效期
  */
 @property (nonatomic, strong) NSDate *expires_date;
 
-/**
- *  账号的有效期
- */
-@property (nonatomic, copy) NSString *remind_in;
 
 /**
  *  用户的昵称

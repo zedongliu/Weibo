@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WeiboRootVC : BaseViewController
+@interface WeiboRootVC : BaseTableViewController
 
 @end
 

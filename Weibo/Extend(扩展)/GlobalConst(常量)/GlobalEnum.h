@@ -11,7 +11,9 @@
 
 //请求类型
 typedef NS_ENUM(NSInteger,REQ_TYPE) {
-    REQ_TYPE_LOGIN = 0,//登录
+    REQ_TYPE_OAUTH = 0,//授权
+    REQ_TYPE_ASS_TOKEN,
+    
 };
 
 #endif /* GlobalEnum_h */

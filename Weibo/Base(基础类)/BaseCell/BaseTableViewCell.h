@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewCell : UITableViewCell
 
+///创建UI 默认调用 需要重写
+- (void)initUI;
+
 @end
 
 NS_ASSUME_NONNULL_END

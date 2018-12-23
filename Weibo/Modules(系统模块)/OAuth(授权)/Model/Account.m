@@ -41,30 +41,27 @@
 }
 
 // 归档的时候调用：告诉系统哪个属性需要归档，如何归档
-//- (void)encodeWithCoder:(NSCoder *)aCoder
-//{
-//    [aCoder encodeObject:_access_token forKey:CZAccountTokenKey];
-//    [aCoder encodeObject:_expires_in forKey:CZExpires_inKey];
-//    [aCoder encodeObject:_uid forKey:CZUidKey];
-//    [aCoder encodeObject:_expires_date forKey:CZExpires_dateKey];
-//    [aCoder encodeObject:_name forKey:CZNameKey];
-//}
+- (void)encodeWithCoder:(NSCoder *)aCoder
+
+{
+    [aCoder encodeObject:_access_token forKey:kString_Token];
+    [aCoder encodeObject:_expires_in forKey:kString_EXPIRES_IN];
+    [aCoder encodeObject:_uid forKey:kString_UID];
+}
 
 // 解档的时候调用：告诉系统哪个属性需要解档，如何解档
 
-//- (id)initWithCoder:(NSCoder *)aDecoder
-//{
-//    if (self = [super init]) {
-//
-//        // 一定要记得赋值
-//      _access_token =  [aDecoder decodeObjectForKey:CZAccountTokenKey];
-//        _expires_in = [aDecoder decodeObjectForKey:CZExpires_inKey];
-//        _uid = [aDecoder decodeObjectForKey:CZUidKey];
-//        _expires_date = [aDecoder decodeObjectForKey:CZExpires_dateKey];
-//        _name = [aDecoder decodeObjectForKey:CZNameKey];
-//    }
-//    return self;
-//}
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+
+        // 一定要记得赋值
+        _access_token =  [aDecoder decodeObjectForKey:kString_Token];
+        _expires_in = [aDecoder decodeObjectForKey:kString_EXPIRES_IN];
+        _uid = [aDecoder decodeObjectForKey:kString_UID];
+    }
+    return self;
+}
 
 /**
  *  KVC底层实现：遍历字典里的所有key(uid)

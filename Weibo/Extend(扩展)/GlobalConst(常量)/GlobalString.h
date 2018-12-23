@@ -10,7 +10,11 @@
 #define GlobalString_h
 
 
-#define  kStringUserId @"kStringUserId"
+#define  kString_Token          @"access_token"
+#define  kString_EXPIRES_IN     @"expires_in"
+#define  kString_UID            @"uid"
+#define  kString_REMIND_IN      @"remind_in"
+
 
 
 #endif /* GlobalString_h */

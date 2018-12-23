@@ -10,8 +10,12 @@
 #import "RootViewController.h"
 #import "LoginView.h"
 
-@interface LoginViewController ()<UIWebViewDelegate>
+#import "Account.h"
+#import "TokenTools.h"
 
+@interface LoginViewController ()<UIWebViewDelegate>{
+    Account *account;
+}
 @end
 
 @implementation LoginViewController
@@ -22,15 +26,9 @@
 }
 
 - (void)initUI{
-//    LoginView *loginView = [[LoginView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-//    [self.view addSubview:loginView];
-//
-//    [loginView.loginBtn addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
     
     // 展示登陆的网页 -> UIWebView
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
     [self.view addSubview:webView];
     
     // 加载网页
@@ -98,23 +96,18 @@
     
     // 获取code(RequestToken)
     NSRange range = [urlStr rangeOfString:@"code="];
-    if (range.length) { // 有code=
-        
-        // code=81524df3190ea6e58e33c9a0eba1ac56
-        // 0 + length
+    if (range.length) {
         
         NSString *code = [urlStr substringFromIndex:range.location + range.length];
         // 换取accessToken
         NSLog(@"code:%@",code);
-        [UserDefault setString:code forKey:@"codeToken"];
-//        [self accessTokenWithCode:code];
+        [UserDefault setString:code forKey:@"code"];
         
-        //去首页
-        RootViewController *navi = [[RootViewController alloc]init];
-        K_MAIN_WINDOWS.rootViewController = navi;
+        
+        [self accessTokenWithCode:code];
         
         // 不会去加载回调界面
-        return YES;
+        return NO;
         
     }
     
@@ -129,5 +122,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - 换取accessToken
+- (void)accessTokenWithCode:(NSString *)code
+{
+    [TokenTools getTokenWithCode:code success:^{
+        
+        RootViewController *navi = [[RootViewController alloc]init];
+        K_MAIN_WINDOWS.rootViewController = navi;
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
+}
 
 @end

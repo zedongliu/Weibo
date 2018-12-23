@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "RootViewController.h"
+#import "TokenTools.h"
 
 @interface AppDelegate ()
 
@@ -57,9 +58,19 @@
 - (void)loadTheView{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // 选择根控制器
+    if ([TokenTools getToken]) { // 已经授权
+        
+        BaseNavigationController *rootVC = [[BaseNavigationController alloc] initWithRootViewController:[[RootViewController alloc] init]];
+        self.window.rootViewController = rootVC;
+        
+    }else{ //未授权 进行授权
+       
+        BaseNavigationController *loginVC = [[BaseNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
+        self.window.rootViewController = loginVC;
+    }
 
-    BaseNavigationController *loginVC = [[BaseNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
-    self.window.rootViewController = loginVC;
     
     [self.window makeKeyAndVisible];
 }

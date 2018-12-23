@@ -41,6 +41,14 @@
 		7DCA306821CA28CB00D1B4FA /* PersonalRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA306721CA28CB00D1B4FA /* PersonalRootVC.m */; };
 		7DCA306B21CA394F00D1B4FA /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA306A21CA394F00D1B4FA /* BaseTabBar.m */; };
 		7DCA306D21CB76DE00D1B4FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DCA306C21CB76DE00D1B4FA /* Assets.xcassets */; };
+		7DCA307421CCBCB300D1B4FA /* TokenTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA307321CCBCB300D1B4FA /* TokenTools.m */; };
+		7DCA307821CCD4CE00D1B4FA /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA307721CCD4CE00D1B4FA /* StatusModel.m */; };
+		7DCA307B21CCD8EE00D1B4FA /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA307A21CCD8EE00D1B4FA /* CommentModel.m */; };
+		7DCA307E21CCDA3100D1B4FA /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA307D21CCDA3100D1B4FA /* UserModel.m */; };
+		7DCA308121CCE10900D1B4FA /* RemindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA308021CCE10900D1B4FA /* RemindModel.m */; };
+		7DCA308421CCE23100D1B4FA /* GeoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA308321CCE23100D1B4FA /* GeoModel.m */; };
+		7DCA308B21CCEC7200D1B4FA /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA308A21CCEC7200D1B4FA /* StatusCell.m */; };
+		7DE6740621CE69CB009AEDB2 /* Home_TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6740521CE69CB009AEDB2 /* Home_TimeLine.m */; };
 		CF9B845B62916EFB6BE06554 /* libPods-Weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464A9B8287C1726AB8FEDC13 /* libPods-Weibo.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +148,22 @@
 		7DCA306921CA394F00D1B4FA /* BaseTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
 		7DCA306A21CA394F00D1B4FA /* BaseTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
 		7DCA306C21CB76DE00D1B4FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7DCA307221CCBCB300D1B4FA /* TokenTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenTools.h; sourceTree = "<group>"; };
+		7DCA307321CCBCB300D1B4FA /* TokenTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenTools.m; sourceTree = "<group>"; };
+		7DCA307621CCD4CE00D1B4FA /* StatusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusModel.h; sourceTree = "<group>"; };
+		7DCA307721CCD4CE00D1B4FA /* StatusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusModel.m; sourceTree = "<group>"; };
+		7DCA307921CCD8EE00D1B4FA /* CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		7DCA307A21CCD8EE00D1B4FA /* CommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		7DCA307C21CCDA3100D1B4FA /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		7DCA307D21CCDA3100D1B4FA /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		7DCA307F21CCE10900D1B4FA /* RemindModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindModel.h; sourceTree = "<group>"; };
+		7DCA308021CCE10900D1B4FA /* RemindModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindModel.m; sourceTree = "<group>"; };
+		7DCA308221CCE23100D1B4FA /* GeoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoModel.h; sourceTree = "<group>"; };
+		7DCA308321CCE23100D1B4FA /* GeoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoModel.m; sourceTree = "<group>"; };
+		7DCA308921CCEC7200D1B4FA /* StatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		7DCA308A21CCEC7200D1B4FA /* StatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		7DE6740421CE69CB009AEDB2 /* Home_TimeLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_TimeLine.h; sourceTree = "<group>"; };
+		7DE6740521CE69CB009AEDB2 /* Home_TimeLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_TimeLine.m; sourceTree = "<group>"; };
 		CF8E4567F3DAFBC1B7131429 /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		D440A739BC5CAC503B22B58D /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +277,7 @@
 		7DC91C6921917ECC00892C28 /* Utils(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				7DCA307521CCC8B800D1B4FA /* Token */,
 				7DC91CCD2193CD4B00892C28 /* Animation */,
 				7DC91CA321928B8E00892C28 /* UserDefault */,
 				7DC91C782191806E00892C28 /* HttpRequest */,
@@ -276,7 +301,7 @@
 				7DC91C8A21918DD000892C28 /* BaseTabBarController */,
 				7DC91C8921918DAF00892C28 /* BaseNavigationController */,
 				7DC91C792191807900892C28 /* BaseCell */,
-				7DC91C772191805F00892C28 /* BaseModel */,
+				7DC91C772191805F00892C28 /* BaseModel(常见对象数据结构) */,
 				7DC91C762191805900892C28 /* BaseView */,
 				7DC91C752191804E00892C28 /* BaseController */,
 			);
@@ -289,7 +314,7 @@
 				7DC91C7A2191808300892C28 /* Root */,
 				7DC91C7321917F9400892C28 /* Weibo(微博) */,
 				7DC91C7221917F8A00892C28 /* Message(消息) */,
-				7DC91C7121917F8500892C28 /* Add */,
+				7DC91C7121917F8500892C28 /* Publish(发布) */,
 				7DC91C7021917F7D00892C28 /* Find(发现) */,
 				7DC91C6F21917F6F00892C28 /* Me(我) */,
 				7DC91C6E21917F6600892C28 /* OAuth(授权) */,
@@ -313,6 +338,7 @@
 		7DC91C6E21917F6600892C28 /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
+				7DCA307121CCBC8900D1B4FA /* Tools */,
 				7DC91CAA21928E5300892C28 /* Model */,
 				7DC91CA821928E3F00892C28 /* View */,
 				7DC91CC92193C5E500892C28 /* ViewModel */,
@@ -339,11 +365,11 @@
 			path = "Find(发现)";
 			sourceTree = "<group>";
 		};
-		7DC91C7121917F8500892C28 /* Add */ = {
+		7DC91C7121917F8500892C28 /* Publish(发布) */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Add;
+			path = "Publish(发布)";
 			sourceTree = "<group>";
 		};
 		7DC91C7221917F8A00892C28 /* Message(消息) */ = {
@@ -358,8 +384,10 @@
 		7DC91C7321917F9400892C28 /* Weibo(微博) */ = {
 			isa = PBXGroup;
 			children = (
-				7DCA305D21CA286C00D1B4FA /* WeiboRootVC.h */,
-				7DCA305E21CA286C00D1B4FA /* WeiboRootVC.m */,
+				7DCA308621CCE7E600D1B4FA /* Model */,
+				7DCA308821CCE80400D1B4FA /* View */,
+				7DCA308721CCE7F400D1B4FA /* Controller */,
+				7DCA308521CCE7D800D1B4FA /* Cell */,
 			);
 			path = "Weibo(微博)";
 			sourceTree = "<group>";
@@ -390,13 +418,23 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
-		7DC91C772191805F00892C28 /* BaseModel */ = {
+		7DC91C772191805F00892C28 /* BaseModel(常见对象数据结构) */ = {
 			isa = PBXGroup;
 			children = (
 				7DC91C9721926EFE00892C28 /* BaseModel.h */,
 				7DC91C9821926EFE00892C28 /* BaseModel.m */,
+				7DCA307621CCD4CE00D1B4FA /* StatusModel.h */,
+				7DCA307721CCD4CE00D1B4FA /* StatusModel.m */,
+				7DCA307921CCD8EE00D1B4FA /* CommentModel.h */,
+				7DCA307A21CCD8EE00D1B4FA /* CommentModel.m */,
+				7DCA307C21CCDA3100D1B4FA /* UserModel.h */,
+				7DCA307D21CCDA3100D1B4FA /* UserModel.m */,
+				7DCA307F21CCE10900D1B4FA /* RemindModel.h */,
+				7DCA308021CCE10900D1B4FA /* RemindModel.m */,
+				7DCA308221CCE23100D1B4FA /* GeoModel.h */,
+				7DCA308321CCE23100D1B4FA /* GeoModel.m */,
 			);
-			path = BaseModel;
+			path = "BaseModel(常见对象数据结构)";
 			sourceTree = "<group>";
 		};
 		7DC91C782191806E00892C28 /* HttpRequest */ = {
@@ -533,6 +571,56 @@
 				7DC91CCF2193CD6E00892C28 /* Animation.m */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		7DCA307121CCBC8900D1B4FA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7DCA307521CCC8B800D1B4FA /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				7DCA307221CCBCB300D1B4FA /* TokenTools.h */,
+				7DCA307321CCBCB300D1B4FA /* TokenTools.m */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		7DCA308521CCE7D800D1B4FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DCA308921CCEC7200D1B4FA /* StatusCell.h */,
+				7DCA308A21CCEC7200D1B4FA /* StatusCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7DCA308621CCE7E600D1B4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7DE6740421CE69CB009AEDB2 /* Home_TimeLine.h */,
+				7DE6740521CE69CB009AEDB2 /* Home_TimeLine.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DCA308721CCE7F400D1B4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7DCA305D21CA286C00D1B4FA /* WeiboRootVC.h */,
+				7DCA305E21CA286C00D1B4FA /* WeiboRootVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7DCA308821CCE80400D1B4FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B9135753255BACB51241ABAD /* Pods */ = {
@@ -732,16 +820,21 @@
 				7DC91C8821918D9800892C28 /* BaseView.m in Sources */,
 				7DC91CD02193CD6E00892C28 /* Animation.m in Sources */,
 				7DC91CA721928BC600892C28 /* UserDefault.m in Sources */,
+				7DCA307421CCBCB300D1B4FA /* TokenTools.m in Sources */,
 				7DC91CB72192911B00892C28 /* UIColor+Convenience.m in Sources */,
 				7DC91CC82192D21700892C28 /* BaseTableView.m in Sources */,
 				7DCA305C21CA157E00D1B4FA /* Account.m in Sources */,
 				7DCA306521CA28A900D1B4FA /* FindRootVC.m in Sources */,
 				7DCA305F21CA286D00D1B4FA /* WeiboRootVC.m in Sources */,
+				7DCA307B21CCD8EE00D1B4FA /* CommentModel.m in Sources */,
+				7DCA307E21CCDA3100D1B4FA /* UserModel.m in Sources */,
+				7DCA308421CCE23100D1B4FA /* GeoModel.m in Sources */,
 				7DC91C7F21918D3200892C28 /* BaseViewController.m in Sources */,
 				7DC91CBA2192942700892C28 /* LoginView.m in Sources */,
 				7DC91C9321918EAC00892C28 /* RootViewController.m in Sources */,
 				7DC91C9921926EFE00892C28 /* BaseModel.m in Sources */,
 				7DCA306821CA28CB00D1B4FA /* PersonalRootVC.m in Sources */,
+				7DE6740621CE69CB009AEDB2 /* Home_TimeLine.m in Sources */,
 				7DC91C8D21918E1300892C28 /* BaseTabBarController.m in Sources */,
 				7DCA306B21CA394F00D1B4FA /* BaseTabBar.m in Sources */,
 				7DC91C9021918E3B00892C28 /* BaseNavigationController.m in Sources */,
@@ -752,8 +845,11 @@
 				7DC91CC22192CF7D00892C28 /* BaseTableViewCell.m in Sources */,
 				7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */,
 				7DC91C9C2192716200892C28 /* HttpRequest.m in Sources */,
+				7DCA308121CCE10900D1B4FA /* RemindModel.m in Sources */,
 				7DC91C8221918D5000892C28 /* BaseTableViewController.m in Sources */,
+				7DCA307821CCD4CE00D1B4FA /* StatusModel.m in Sources */,
 				7DC91CAD21928E7900892C28 /* LoginViewController.m in Sources */,
+				7DCA308B21CCEC7200D1B4FA /* StatusCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

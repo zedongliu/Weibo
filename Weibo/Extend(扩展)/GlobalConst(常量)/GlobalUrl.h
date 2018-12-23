@@ -10,6 +10,29 @@
 #define GlobalUrl_h
 
 //url
-static NSString * const BASE_URL = @"https://api.weibo.com/2/";
+static NSString * const BASE_URL = @"https://api.weibo.com/";
+
+//微博
+static NSString * const HOME_TIMELINE = @"statuses/home_timeline";
+static NSString * const USER_TIMELINE = @"statuses/user_timeline";
+static NSString * const REPOST_TIMELINE = @"statuses/repost_timeline";
+static NSString * const MENTIONS = @"statuses/mentions";
+static NSString * const SHOW = @"statuses/show";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
+//static NSString * const  = @"";
 
 #endif /* GlobalUrl_h */

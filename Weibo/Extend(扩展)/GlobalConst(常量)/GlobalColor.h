@@ -18,7 +18,7 @@
 #define COLOR_ABAFBA   HEX_COLOR_STR(@"ABAFBA")
 #define COLOR_BFC3CF   HEX_COLOR_STR(@"BFC3CF")
 #define COLOR_ECECEC   HEX_COLOR_STR(@"ECECEC")
-#define COLOR_FF6600   HEX_COLOR_STR(@"FF6600")
+#define COLOR_FF6600   HEX_COLOR_STR(@"FF8200")
 
 #define COLOR_WHITE     [UIColor whiteColor]
 #define COLOR_BLACK     [UIColor blackColor]

@@ -10,18 +10,6 @@
 
 @implementation BaseTableViewCell
 
-//- (id)initWithFrame:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//    if (self)
-//    {
-//        [self initUI];
-//    }
-//    
-//    return self;
-//}
-
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if ([[self class] respondsToSelector:@selector(style)])

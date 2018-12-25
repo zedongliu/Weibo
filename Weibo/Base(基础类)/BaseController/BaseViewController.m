@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "RefreshHeaderView.h"
+#import "MJRefreshBackNormalFooter.h"
 
 @interface BaseViewController ()<UINavigationControllerDelegate>
 
@@ -491,28 +492,28 @@ withConstruction:(BlockConstruction)blockConstruction
 ///添加上拉
 - (void)addRefreshFooter:(UITableView *)tableView
 {
-//    __weak typeof(self) weakSelf = self;
-//    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    __weak typeof(self) weakSelf = self;
+    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
 //        weakSelf.pageBase ++;
-//        [weakSelf getBaseDataMethod];
-//    }];
-//    self.scrollViewBase = tableView;
+        [weakSelf getMoreDataMethod];
+    }];
+    self.scrollViewBase = tableView;
 }
 ///获取基础数据 通用方法
 - (void)getBaseDataMethod{}
-
+- (void)getMoreDataMethod{}
 ///停止刷新
 - (void)stopRefresh
 {
-//    if (self.scrollViewBase.mj_header.isRefreshing)
-//    {
-//        [self.scrollViewBase.mj_header endRefreshing];
-//    }
-//
-//    if (self.scrollViewBase.mj_footer.isRefreshing)
-//    {
-//        [self.scrollViewBase.mj_footer endRefreshing];
-//    }
+    if (self.scrollViewBase.mj_header.isRefreshing)
+    {
+        [self.scrollViewBase.mj_header endRefreshing];
+    }
+
+    if (self.scrollViewBase.mj_footer.isRefreshing)
+    {
+        [self.scrollViewBase.mj_footer endRefreshing];
+    }
 }
 
 #pragma mark - Overwrite

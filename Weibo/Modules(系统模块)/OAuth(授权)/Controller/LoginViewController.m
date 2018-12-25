@@ -127,8 +127,24 @@
 {
     [TokenTools getTokenWithCode:code success:^{
         
-        RootViewController *navi = [[RootViewController alloc]init];
-        K_MAIN_WINDOWS.rootViewController = navi;
+        NSString *url = @"2/account/get_uid.json";
+        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+        [params setValue:[TokenTools getToken] forKey:@"access_token"];
+        
+        
+        [HttpRequest doGetWithURL:url withParams:params success:^(NSURLSessionDataTask * _Nonnull request, id  _Nonnull responseObject, Response * _Nonnull response) {
+            
+            NSString *uid = responseObject[@"uid"];
+            [UserDefault setString:uid forKey:@"uid"];
+            
+            RootViewController *navi = [[RootViewController alloc]init];
+            K_MAIN_WINDOWS.rootViewController = navi;
+            
+        } failure:^(NSURLSessionDataTask * _Nonnull request, NSError * _Nonnull error) {
+            [self showToast:@"uid获取失败" withTime:2];
+        }];
+        
+        
         
     } failure:^(NSError * _Nonnull error) {
         

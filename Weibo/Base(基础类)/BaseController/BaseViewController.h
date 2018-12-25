@@ -81,6 +81,7 @@ withConstruction:(BlockConstruction)blockConstruction;
 - (void)addRefreshFooter:(UITableView *)tableView;
 ///获取基础数据 通用方法
 - (void)getBaseDataMethod;
+- (void)getMoreDataMethod;
 ///上下拉页码
 @property (nonatomic, assign) NSUInteger pageBase;
 @property (nonatomic, strong) UIScrollView *scrollViewBase;//当前页面刷新视图

@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatusCell : BaseTableViewCell
 
-@property(nonatomic,strong)StatusModel *statusData;
-@property(nonatomic,strong)UILabel *text_Lab;
+- (void)setData:(StatusModel*) statusData;
 
 @end
 

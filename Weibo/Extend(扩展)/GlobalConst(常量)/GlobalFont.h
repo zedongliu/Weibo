@@ -16,8 +16,13 @@
 
 #define IMAGENAMED(NAME)       [UIImage imageNamed:NAME]
 
+#define FONT_9   9
+#define FONT_10  10
 #define FONT_12  12
+#define FONT_13  13
+#define FONT_14  14
 #define FONT_15  15
+#define FONT_16  16
 #define FONT_18  18
 #define FONT_21  21
 #define FONT_25  25

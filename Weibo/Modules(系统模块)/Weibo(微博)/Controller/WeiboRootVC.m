@@ -10,8 +10,11 @@
 #import "Home_TimeLine.h"
 #import "StatusCell.h"
 
+#import "RefreshHeaderView.h"
+
 @interface WeiboRootVC (){
     Home_TimeLine  *homeTimeLineData;
+    NSInteger currentPageNumber;
     NSMutableArray <StatusModel*> *statusData;
 }
 @property(nonatomic,strong)UILabel *text_Lab;
@@ -23,17 +26,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setData];
+     self->currentPageNumber = 1;
+    
+    [self setDataWithPage:self->currentPageNumber];
     [self setUI];
 }
 
-- (void)setData{
+- (void)setDataWithPage:(NSInteger)page{
     
     self->statusData =  [NSMutableArray array];
+    self->homeTimeLineData = [[Home_TimeLine alloc]init];
+   
     
     NSString *url = @"statuses/home_timeline.json";
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     [params setValue:[TokenTools getToken] forKey:@"access_token"];
+    [params setValue: @(page) forKey:@"page"];
     
     
     [HttpRequest doGetWithURL:url withParams:params success:^(NSURLSessionDataTask * _Nonnull request, id  _Nonnull responseObject, Response * _Nonnull response) {
@@ -41,11 +49,14 @@
         self->homeTimeLineData =  [Home_TimeLine mj_objectWithKeyValues:responseObject];
         self->statusData = self->homeTimeLineData.statuses;
         
-        [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"微博数量：%lu",(unsigned long)self->statusData.count]];
-        NSLog(@"微博数据：%@",self->statusData[0].text);
+        
+        [self.tableView reloadData];
+        [self stopRefresh];
         
     } failure:^(NSURLSessionDataTask * _Nonnull request, NSError * _Nonnull error) {
-
+        
+        
+        [self stopRefresh];
     }];
 }
 
@@ -66,28 +77,55 @@
     //设置代理
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    [self addRefreshHeader:self.tableView];
+    [self addRefreshFooter:self.tableView];
+    
+}
+- (void)getBaseDataMethod{
+    self->currentPageNumber = 1;
+    [self setDataWithPage:self->currentPageNumber];
+}
+-(void)getMoreDataMethod{
+    self->currentPageNumber++;
+    [self setDataWithPage:self->currentPageNumber];
+    
 }
 
 #pragma mark - tableView
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
+    if(section == 0){
+        return SCALE_Heigth(0.000000000001);
+    }
+    return SCALE_Heigth(10);
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return self->statusData.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return statusData.count;
+    return 1;
 }
+// 使cell高度自适应  此方法必须重写
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //这个值可以随意写
+    return 10;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return SCALE_Heigth(60);
+    return UITableViewAutomaticDimension;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:@"statusCell" forIndexPath:indexPath];
-    cell.statusData = statusData[indexPath.row];
-    cell.text_Lab.text = statusData[indexPath.row].text;
+    
+    // 创建常量标识符
+    static NSString *identifier = @"statusCell";
+    StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    if(! cell){
+        cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    [cell setData:self->statusData[indexPath.section]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

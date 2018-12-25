@@ -49,6 +49,9 @@
 		7DCA308421CCE23100D1B4FA /* GeoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA308321CCE23100D1B4FA /* GeoModel.m */; };
 		7DCA308B21CCEC7200D1B4FA /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA308A21CCEC7200D1B4FA /* StatusCell.m */; };
 		7DE6740621CE69CB009AEDB2 /* Home_TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6740521CE69CB009AEDB2 /* Home_TimeLine.m */; };
+		7DE6740D21CF8356009AEDB2 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6740C21CF8356009AEDB2 /* UserInfoCell.m */; };
+		7DE6741021D1C90D009AEDB2 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6740F21D1C90D009AEDB2 /* BaseCollectionView.m */; };
+		7DE6741321D1CB2C009AEDB2 /* StatusPicCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6741221D1CB2C009AEDB2 /* StatusPicCollectionView.m */; };
 		CF9B845B62916EFB6BE06554 /* libPods-Weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464A9B8287C1726AB8FEDC13 /* libPods-Weibo.a */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +167,12 @@
 		7DCA308A21CCEC7200D1B4FA /* StatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
 		7DE6740421CE69CB009AEDB2 /* Home_TimeLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home_TimeLine.h; sourceTree = "<group>"; };
 		7DE6740521CE69CB009AEDB2 /* Home_TimeLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home_TimeLine.m; sourceTree = "<group>"; };
+		7DE6740B21CF8356009AEDB2 /* UserInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
+		7DE6740C21CF8356009AEDB2 /* UserInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
+		7DE6740E21D1C90D009AEDB2 /* BaseCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionView.h; sourceTree = "<group>"; };
+		7DE6740F21D1C90D009AEDB2 /* BaseCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionView.m; sourceTree = "<group>"; };
+		7DE6741121D1CB2C009AEDB2 /* StatusPicCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusPicCollectionView.h; sourceTree = "<group>"; };
+		7DE6741221D1CB2C009AEDB2 /* StatusPicCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusPicCollectionView.m; sourceTree = "<group>"; };
 		CF8E4567F3DAFBC1B7131429 /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		D440A739BC5CAC503B22B58D /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,8 +359,10 @@
 		7DC91C6F21917F6F00892C28 /* Me(我) */ = {
 			isa = PBXGroup;
 			children = (
-				7DCA306621CA28CB00D1B4FA /* PersonalRootVC.h */,
-				7DCA306721CA28CB00D1B4FA /* PersonalRootVC.m */,
+				7DE6740A21CF82E7009AEDB2 /* Cell */,
+				7DE6740921CF82DF009AEDB2 /* Controller */,
+				7DE6740821CF82D8009AEDB2 /* View */,
+				7DE6740721CF82CB009AEDB2 /* Model */,
 			);
 			path = "Me(我)";
 			sourceTree = "<group>";
@@ -412,6 +423,8 @@
 				7DC91C8721918D9800892C28 /* BaseView.m */,
 				7DC91CC62192D21700892C28 /* BaseTableView.h */,
 				7DC91CC72192D21700892C28 /* BaseTableView.m */,
+				7DE6740E21D1C90D009AEDB2 /* BaseCollectionView.h */,
+				7DE6740F21D1C90D009AEDB2 /* BaseCollectionView.m */,
 				7DC91CCA2193CC2100892C28 /* RefreshHeaderView.h */,
 				7DC91CCB2193CC2100892C28 /* RefreshHeaderView.m */,
 			);
@@ -619,8 +632,42 @@
 		7DCA308821CCE80400D1B4FA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7DE6741121D1CB2C009AEDB2 /* StatusPicCollectionView.h */,
+				7DE6741221D1CB2C009AEDB2 /* StatusPicCollectionView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7DE6740721CF82CB009AEDB2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7DE6740821CF82D8009AEDB2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7DE6740921CF82DF009AEDB2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7DCA306621CA28CB00D1B4FA /* PersonalRootVC.h */,
+				7DCA306721CA28CB00D1B4FA /* PersonalRootVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7DE6740A21CF82E7009AEDB2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7DE6740B21CF8356009AEDB2 /* UserInfoCell.h */,
+				7DE6740C21CF8356009AEDB2 /* UserInfoCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B9135753255BACB51241ABAD /* Pods */ = {
@@ -816,6 +863,7 @@
 				7DC91C3921917D8500892C28 /* ViewController.m in Sources */,
 				7DC91C9621926ECE00892C28 /* Response.m in Sources */,
 				7DC91C8521918D6F00892C28 /* BaseCollectionViewController.m in Sources */,
+				7DE6741021D1C90D009AEDB2 /* BaseCollectionView.m in Sources */,
 				7DC91CCC2193CC2100892C28 /* RefreshHeaderView.m in Sources */,
 				7DC91C8821918D9800892C28 /* BaseView.m in Sources */,
 				7DC91CD02193CD6E00892C28 /* Animation.m in Sources */,
@@ -831,12 +879,14 @@
 				7DCA308421CCE23100D1B4FA /* GeoModel.m in Sources */,
 				7DC91C7F21918D3200892C28 /* BaseViewController.m in Sources */,
 				7DC91CBA2192942700892C28 /* LoginView.m in Sources */,
+				7DE6741321D1CB2C009AEDB2 /* StatusPicCollectionView.m in Sources */,
 				7DC91C9321918EAC00892C28 /* RootViewController.m in Sources */,
 				7DC91C9921926EFE00892C28 /* BaseModel.m in Sources */,
 				7DCA306821CA28CB00D1B4FA /* PersonalRootVC.m in Sources */,
 				7DE6740621CE69CB009AEDB2 /* Home_TimeLine.m in Sources */,
 				7DC91C8D21918E1300892C28 /* BaseTabBarController.m in Sources */,
 				7DCA306B21CA394F00D1B4FA /* BaseTabBar.m in Sources */,
+				7DE6740D21CF8356009AEDB2 /* UserInfoCell.m in Sources */,
 				7DC91C9021918E3B00892C28 /* BaseNavigationController.m in Sources */,
 				7DC91C4421917D8700892C28 /* main.m in Sources */,
 				7DC91CC52192CF9700892C28 /* BaseCollectionViewCell.m in Sources */,

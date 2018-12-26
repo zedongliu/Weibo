@@ -195,7 +195,6 @@
     NSString *repostTitle = statusData.reposts_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.reposts_count]:@"转发";
     NSString *commentTitle = statusData.comments_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.comments_count]:@"评论";
     NSString *attitudeTitle = statusData.attitudes_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.attitudes_count]:@"点赞";
-    
     [repostBtn setTitle:repostTitle forState:UIControlStateNormal];
     [commentBtn setTitle:commentTitle forState:UIControlStateNormal];
     [attitudeBtn setTitle:attitudeTitle forState:UIControlStateNormal];

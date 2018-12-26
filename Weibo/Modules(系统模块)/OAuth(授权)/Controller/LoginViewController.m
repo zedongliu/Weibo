@@ -99,11 +99,7 @@
     if (range.length) {
         
         NSString *code = [urlStr substringFromIndex:range.location + range.length];
-        // 换取accessToken
-        NSLog(@"code:%@",code);
         [UserDefault setString:code forKey:@"code"];
-        
-        
         [self accessTokenWithCode:code];
         
         // 不会去加载回调界面
@@ -131,20 +127,19 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
         [params setValue:[TokenTools getToken] forKey:@"access_token"];
         
-        
+        // 获取token成功   接下来用token获取uid
         [HttpRequest doGetWithURL:url withParams:params success:^(NSURLSessionDataTask * _Nonnull request, id  _Nonnull responseObject, Response * _Nonnull response) {
             
             NSString *uid = responseObject[@"uid"];
+            // 存储uid
             [UserDefault setString:uid forKey:@"uid"];
-            
+            // 更换rootViewController 进入首页
             RootViewController *navi = [[RootViewController alloc]init];
             K_MAIN_WINDOWS.rootViewController = navi;
             
         } failure:^(NSURLSessionDataTask * _Nonnull request, NSError * _Nonnull error) {
             [self showToast:@"uid获取失败" withTime:2];
         }];
-        
-        
         
     } failure:^(NSError * _Nonnull error) {
         

@@ -25,8 +25,8 @@
         
         // 设置tabbar的子控件
         UIButton * publishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [publishBtn setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_selected"] forState:UIControlStateNormal];
-        [publishBtn setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_selected"] forState:UIControlStateHighlighted];
+        [publishBtn setBackgroundImage:[UIImage imageNamed:@"tabBar_publish"] forState:UIControlStateNormal];
+        [publishBtn setBackgroundImage:[UIImage imageNamed:@"tabBar_publish"] forState:UIControlStateHighlighted];
         [publishBtn sizeToFit];
         
         [self addSubview:publishBtn];

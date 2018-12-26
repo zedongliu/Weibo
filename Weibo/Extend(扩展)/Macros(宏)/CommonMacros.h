@@ -24,7 +24,7 @@
 #define G_SCREEN_SCALE [UIScreen mainScreen].scale
 
 //获取缩放高
-#define SCALE_Heigth(a) (a/667.0f*KScreenHeight)
+#define SCALE_Height(a) (a/667.0f*KScreenHeight)
 
 
 //图片

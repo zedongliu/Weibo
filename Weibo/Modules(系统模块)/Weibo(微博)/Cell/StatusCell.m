@@ -34,16 +34,18 @@
 - (void)initUI{
     [self.contentView setBackgroundColor:[UIColor whiteColor]];
     
+    //头像
     avatar_ImgView = [[UIImageView alloc]init];
-    avatar_ImgView.layer.cornerRadius = SCALE_Heigth(15);
+    avatar_ImgView.layer.cornerRadius = SCALE_Height(15);
+    self->avatar_ImgView.layer.masksToBounds = YES;
     [self.contentView addSubview:avatar_ImgView];
     [avatar_ImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).mas_offset(Margin12);
         make.top.mas_equalTo(self.contentView.mas_top).mas_offset(Margin12);
-        make.width.height.mas_equalTo(SCALE_Heigth(30));
+        make.width.height.mas_equalTo(SCALE_Height(30));
     }];
     
-    
+    // 昵称
     name_Lab = [[UILabel alloc]init];
     name_Lab.textColor = COLOR_Emphasize;
     name_Lab.font = MEDIUMFONT(FONT_14);
@@ -53,7 +55,7 @@
         make.top.mas_equalTo(self->avatar_ImgView.mas_top).mas_offset(0);
     }];
     
-    
+    // 时间
     creatTime_Lab = [[UILabel alloc]init];
     creatTime_Lab.textColor = COLOR_Support;
     creatTime_Lab.font = REGULARFONT(FONT_9);
@@ -63,7 +65,7 @@
         make.bottom.mas_equalTo(self->avatar_ImgView.mas_bottom).mas_offset(0);
     }];
     
-    
+    // 内容
     text_Lab = [[UILabel alloc]init];
     text_Lab.textColor = COLOR_ContentText;
     text_Lab.font = REGULARFONT(FONT_16);
@@ -76,22 +78,33 @@
         make.top.mas_equalTo(self->avatar_ImgView.mas_bottom).mas_offset(Margin12);
     }];
     
+    // 图片
+    picView = [[UIView alloc]init];
+    [self.contentView addSubview:picView];
+    [picView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left).mas_offset(Margin12);
+        make.right.mas_equalTo(self.contentView.mas_right).mas_offset(-Margin12);
+        make.top.mas_equalTo(self->text_Lab.mas_bottom).mas_offset(Margin12);
+        make.height.mas_equalTo(SCALE_Height(0));
+    }];
     
-//    picView = [[UIView alloc]init];
-//    [self.contentView addSubview:picView];
-//    [picView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.mas_equalTo(self.contentView);
-//        make.top.mas_equalTo(self->text_Lab.mas_bottom).mas_offset(Margin12);
-//        make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-Margin12);
-//    }];
-    
+    // 分割线
+    UIView *line = [[UIView alloc]init];
+    [line setBackgroundColor:COLOR_Line];
+    [self.contentView addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView).mas_offset(Margin12);
+        make.right.mas_equalTo(self.contentView).mas_offset(-Margin12);
+        make.top.mas_equalTo(self->picView.mas_bottom).mas_offset(10);
+        make.height.mas_equalTo(SCALE_Height(0.5));
+    }];
     
     bottomView = [[UIView alloc]init];
     [self.contentView addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.contentView);
-        make.top.mas_equalTo(self->text_Lab.mas_bottom).mas_offset(10);
-        make.height.mas_equalTo(SCALE_Heigth(20));
+        make.top.mas_equalTo(line.mas_bottom).mas_offset(0);
+        make.height.mas_equalTo(SCALE_Height(25));
         make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(0);
     }];
     
@@ -103,7 +116,7 @@
         make.width.mas_equalTo(KScreenWidth/3);
     }];
     repostBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    repostBtn.titleLabel.font =REGULARFONT( FONT_9);
+    repostBtn.titleLabel.font =REGULARFONT( FONT_12);
     [repostBtn setImage:[UIImage imageNamed:@"repost_icon"] forState:UIControlStateNormal];
     [repostBtn setTitleColor:COLOR_StatusBottom forState:UIControlStateNormal];
     [repostView addSubview:repostBtn];
@@ -120,7 +133,7 @@
         make.width.mas_equalTo(KScreenWidth/3);
     }];
     commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    commentBtn.titleLabel.font =REGULARFONT( FONT_9);
+    commentBtn.titleLabel.font =REGULARFONT( FONT_12);
     [commentBtn setImage:[UIImage imageNamed:@"comment_icon"] forState:UIControlStateNormal];
     [commentBtn setTitleColor:COLOR_StatusBottom forState:UIControlStateNormal];
     [commentView addSubview:commentBtn];
@@ -138,7 +151,10 @@
     attitudeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     attitudeBtn.titleLabel.font =REGULARFONT( FONT_12);
     [attitudeBtn setImage:[UIImage imageNamed:@"attitude_icon"] forState:UIControlStateNormal];
+    [attitudeBtn setImage:[UIImage imageNamed:@"attitude_clicked_icon"] forState:UIControlStateSelected];
     [attitudeBtn setTitleColor:COLOR_StatusBottom forState:UIControlStateNormal];
+    [attitudeBtn setTitleColor:COLOR_Emphasize forState:UIControlStateSelected];
+    [attitudeBtn addTarget:self action:@selector(attitude:) forControlEvents:UIControlEventTouchUpInside];
     [attitudeView addSubview:attitudeBtn];
     [attitudeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.mas_equalTo(attitudeView);
@@ -153,13 +169,43 @@
     creatTime_Lab.text = [NSString stringWithFormat:@"%@ ",statusData.created_at];
     text_Lab.text = statusData.text;
     
-//    NSMutableArray *picArr = [NSMutableArray array];
-//    pic_collectionView = [[StatusPicCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, 200) itemSize:CGSizeMake(100, 180) withImageArr:picArr];
-//    [self->picView addSubview:pic_collectionView];
     
-    [repostBtn setTitle:[NSString stringWithFormat:@"%ld", (long)statusData.reposts_count] forState:UIControlStateNormal];
-    [commentBtn setTitle:[NSString stringWithFormat:@"%ld", (long)statusData.comments_count] forState:UIControlStateNormal];
-    [attitudeBtn setTitle:[NSString stringWithFormat:@"%ld", (long)statusData.attitudes_count] forState:UIControlStateNormal];
+    
+    CGFloat width = (KScreenWidth -Margin12*2 - 6)/3;
+    CGFloat height = 0;
+    if(statusData.pic_urls.count == 0){
+        height = 0;
+    }else if(statusData.pic_urls.count <= 3 && statusData.pic_urls.count > 0){
+        height = width;
+    }else if(statusData.pic_urls.count <= 6 && statusData.pic_urls.count > 3){
+        height = width*2 + 3;
+    }else if(statusData.pic_urls.count <= 9 && statusData.pic_urls.count > 6){
+        height = width*3 + 6;
+    }else{
+        height = 0;
+    }
+        
+    [self->picView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(height);
+    }];
+    pic_collectionView = [[StatusPicCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth-Margin12*2, height) itemSize:CGSizeMake(width, width) withImageArr:statusData.pic_urls withIdentifier:statusData.idstr];
+    [self->picView addSubview:pic_collectionView];
+    
+    
+    NSString *repostTitle = statusData.reposts_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.reposts_count]:@"转发";
+    NSString *commentTitle = statusData.comments_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.comments_count]:@"评论";
+    NSString *attitudeTitle = statusData.attitudes_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.attitudes_count]:@"点赞";
+    
+    [repostBtn setTitle:repostTitle forState:UIControlStateNormal];
+    [commentBtn setTitle:commentTitle forState:UIControlStateNormal];
+    [attitudeBtn setTitle:attitudeTitle forState:UIControlStateNormal];
+}
+
+
+#pragma mark - action
+// 点赞
+- (void)attitude:(UIButton*)sender{
+    [sender setSelected:!sender.selected];
 }
 
 - (void)awakeFromNib {

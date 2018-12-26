@@ -30,8 +30,8 @@
     self->portraitImg.backgroundColor = K_COLOR_MAIN_BCK;
     [self.contentView addSubview:self->portraitImg];
     [self->portraitImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.contentView.mas_left).mas_offset(SCALE_Heigth(12));
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-SCALE_Heigth(18));
+        make.left.mas_equalTo(self.contentView.mas_left).mas_offset(SCALE_Height(12));
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-SCALE_Height(18));
         make.width.mas_equalTo(72);
         make.height.mas_equalTo(72);
     }];

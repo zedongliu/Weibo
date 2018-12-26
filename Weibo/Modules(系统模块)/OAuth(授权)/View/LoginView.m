@@ -29,7 +29,7 @@
     [self addSubview:title];
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).mas_offset(Margin24);
-        make.top.equalTo(self.mas_top).mas_offset(SCALE_Heigth(100));
+        make.top.equalTo(self.mas_top).mas_offset(SCALE_Height(100));
         make.right.equalTo(self.mas_right).mas_offset(-Margin24);
         make.height.mas_equalTo(Height45);
     }];
@@ -43,9 +43,9 @@
     [self addSubview:_account];
     [_account mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).mas_offset(Margin24);
-        make.top.equalTo(self.mas_top).mas_offset(SCALE_Heigth(180));
+        make.top.equalTo(self.mas_top).mas_offset(SCALE_Height(180));
         make.right.equalTo(self.mas_right).mas_offset(-Margin24);
-        make.height.mas_equalTo(SCALE_Heigth(41));
+        make.height.mas_equalTo(SCALE_Height(41));
     }];
     
     underLine = [[UIView alloc]init];
@@ -53,9 +53,9 @@
     [self addSubview:underLine];
     [underLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).mas_offset(Margin24);
-        make.top.equalTo(self.mas_top).mas_offset(SCALE_Heigth(220));
+        make.top.equalTo(self.mas_top).mas_offset(SCALE_Height(220));
         make.right.equalTo(self.mas_right).mas_offset(-Margin24);
-        make.height.mas_equalTo(SCALE_Heigth(1));
+        make.height.mas_equalTo(SCALE_Height(1));
     }];
     
     _password = [[UITextField alloc] init];
@@ -67,9 +67,9 @@
     [self addSubview:_password];
     [_password mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).mas_offset(Margin24);
-        make.top.equalTo(self.mas_top).mas_offset(SCALE_Heigth(240));
+        make.top.equalTo(self.mas_top).mas_offset(SCALE_Height(240));
         make.right.equalTo(self.mas_right).mas_offset(-Margin24);
-        make.height.mas_equalTo(SCALE_Heigth(41));
+        make.height.mas_equalTo(SCALE_Height(41));
     }];
     
     underLine2 = [[UIView alloc]init];
@@ -77,9 +77,9 @@
     [self addSubview:underLine2];
     [underLine2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).mas_offset(Margin24);
-        make.top.equalTo(self.mas_top).mas_offset(SCALE_Heigth(280));
+        make.top.equalTo(self.mas_top).mas_offset(SCALE_Height(280));
         make.right.equalTo(self.mas_right).mas_offset(-Margin24);
-        make.height.mas_equalTo(SCALE_Heigth(1));
+        make.height.mas_equalTo(SCALE_Height(1));
     }];
     
 
@@ -91,9 +91,9 @@
     [self addSubview:_loginBtn];
     [_loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).mas_offset(Margin24);
-        make.top.equalTo(self).mas_offset(SCALE_Heigth(320));
+        make.top.equalTo(self).mas_offset(SCALE_Height(320));
         make.right.equalTo(self.mas_right).mas_offset(-Margin24);
-        make.height.mas_equalTo(SCALE_Heigth(40));
+        make.height.mas_equalTo(SCALE_Height(40));
     }];
     
 }

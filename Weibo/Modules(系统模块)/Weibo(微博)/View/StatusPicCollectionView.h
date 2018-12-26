@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @imagerArr: 外界存放UIImage的数组
  */
-- (instancetype)initWithFrame:(CGRect)frame itemSize:(CGSize)itemSize withImageArr:(NSArray *)imagerArr;
+- (instancetype)initWithFrame:(CGRect)frame itemSize:(CGSize)itemSize withImageArr:(NSArray *)imagerArr withIdentifier:(NSString*)Identifier;
 
 
 

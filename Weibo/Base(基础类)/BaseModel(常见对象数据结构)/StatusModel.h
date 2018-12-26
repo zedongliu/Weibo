@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) NSInteger province;            //    用户所在省级ID
 @property (nonatomic,assign) NSInteger city;                //    用户所在城市ID
 @property (nonatomic,strong) NSString *location;            //    用户所在地
-@property (nonatomic,strong) NSString *description;         //    用户个人描述
+//@property (nonatomic,strong) NSString *description;         //    用户个人描述
 @property (nonatomic,strong) NSString *url;                 //    用户博客地址
 @property (nonatomic,strong) NSString *profile_image_url;   //    用户头像地址（中图），50×50像素
 @property (nonatomic,strong) NSString *profile_url;         //    用户的微博统一URL地址
@@ -56,6 +56,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+@interface Pic_Url : BaseModel
+
+@property (nonatomic,strong) NSString *thumbnail_pic;
+
+@end
+
+
+
 @interface RetweetedStatus : BaseModel
 
 @property (nonatomic,strong) NSString *created_at;              // 微博创建时间
@@ -72,8 +80,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) GeoModel *geo;                     // 地理信息字段
 @property (nonatomic,strong) User *user;                        // 微博作者的用户信息字段
 @property (nonatomic,assign) NSInteger reposts_count;           // 转发数
-@property (nonatomic,assign) NSInteger *comments_count;         // 评论数
-@property (nonatomic,assign) NSInteger *attitudes_count;        // 表态数
+@property (nonatomic,assign) NSInteger comments_count;          // 评论数
+@property (nonatomic,assign) NSInteger attitudes_count;         // 表态数
 //    微博的可见性及指定可见分组信息。该object中type取值，0：普通微博，1：私密微博，3：指定分组微博，4：密友微博；list_id为分组的组号
 @property (nonatomic,strong) NSObject *visible;
 //    微博配图ID。多图时返回多图ID，用来拼接图片url。用返回字段thumbnail_pic的地址配上该返回字段的图片ID，即可得到多个图片url。
@@ -102,13 +110,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) User *user;                        // 微博作者的用户信息字段
 @property (nonatomic,strong) RetweetedStatus *retweeted_status;     // 被转发的原微博信息字段，当该微博为转发微博时返回
 @property (nonatomic,assign) NSInteger reposts_count;           // 转发数
-@property (nonatomic,assign) NSInteger *comments_count;         // 评论数
-@property (nonatomic,assign) NSInteger *attitudes_count;        // 表态数
+@property (nonatomic,assign) NSInteger comments_count;          // 评论数
+@property (nonatomic,assign) NSInteger attitudes_count;         // 表态数
 
 //    微博的可见性及指定可见分组信息。该object中type取值，0：普通微博，1：私密微博，3：指定分组微博，4：密友微博；list_id为分组的组号
 @property (nonatomic,strong) NSObject *visible;
 //    微博配图ID。多图时返回多图ID，用来拼接图片url。用返回字段thumbnail_pic的地址配上该返回字段的图片ID，即可得到多个图片url。
-@property (nonatomic,strong) NSObject *pic_ids;
+@property (nonatomic,strong) NSArray<Pic_Url*> *pic_urls;
 //    微博流内的推广微博ID
 @property (nonatomic,strong) NSObject *ad;
 

@@ -20,6 +20,8 @@
 #define COLOR_ContentText   HEX_COLOR_STR(@"606060")
 #define COLOR_StatusBottom   HEX_COLOR_STR(@"929292")
 #define COLOR_Support   HEX_COLOR_STR(@"999999")
+#define COLOR_Line   HEX_COLOR_STR(@"E6E6E6")
+
 
 
 

@@ -11,5 +11,18 @@
 @implementation User
 @end
 
+@implementation Pic_Url
+@end
+
+@implementation RetweetedStatus
+@end
+
 @implementation StatusModel
+
++ (NSDictionary *)objectClassInArray{
+    return @{
+             @"pic_urls" : @"Pic_Url"
+             };
+}
+
 @end

@@ -73,11 +73,12 @@
     }];
     //去掉cell分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[StatusCell class] forCellReuseIdentifier:@"statusCell"];
     //设置代理
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
+    // 下拉刷新和上拉加载
     [self addRefreshHeader:self.tableView];
     [self addRefreshFooter:self.tableView];
     
@@ -95,9 +96,9 @@
 #pragma mark - tableView
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(section == 0){
-        return SCALE_Heigth(0.000000000001);
+        return SCALE_Height(0.000000000001);
     }
-    return SCALE_Heigth(10);
+    return SCALE_Height(10);
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return nil;
@@ -119,9 +120,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
+    
     // 创建常量标识符
-    static NSString *identifier = @"statusCell";
-    StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    NSString *identifier = self->statusData[indexPath.section].idstr;
+    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(! cell){
         cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }

@@ -7,6 +7,7 @@
 //
 
 #import "StatusPicCollectionView.h"
+#import "StatusModel.h"
 
 #define cellID @"cellID"
 
@@ -14,7 +15,8 @@
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
 @property (nonatomic, assign) CGSize ItemSize;
-@property (nonatomic, strong) NSArray *ImageArray;
+@property (nonatomic, strong) NSArray<Pic_Url*> *ImageArray;
+@property (nonatomic, strong) NSString *Identifier;
 
 @end
 
@@ -24,24 +26,26 @@
     if (!_layout) {
         _layout = [[UICollectionViewFlowLayout alloc] init];
         _layout.itemSize = self.ItemSize;
-        _layout.minimumLineSpacing = 10.0;
-        _layout.minimumInteritemSpacing = 0.0;
-        _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        _layout.minimumLineSpacing = 3.0;
+        _layout.minimumInteritemSpacing = 3.0;
+        _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     return _layout;
 }
-- (instancetype)initWithFrame:(CGRect)frame collectionViewItemSize:(CGSize)itemSize withImageArr:(NSArray *)imagerArr {
+- (instancetype)initWithFrame:(CGRect)frame itemSize:(CGSize)itemSize withImageArr:(NSArray *)imagerArr withIdentifier:(NSString*)Identifier{
     _ItemSize = itemSize;
+    _Identifier = Identifier;
     if (self = [super initWithFrame:frame collectionViewLayout:self.layout]) {
         //        [self setLayout:self.layout];
+        [self setBackgroundColor:COLOR_WHITE];
         _ImageArray = imagerArr;
         self.bounces = NO;
         self.pagingEnabled = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.delegate = self;
         self.dataSource = self;
-        [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
+        [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:Identifier];
     }
     return self;
 }
@@ -51,10 +55,11 @@
     return self.ImageArray.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.Identifier forIndexPath:indexPath];
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)]; //
     
-    UIImageView *imageV = [[UIImageView alloc] initWithImage:_ImageArray[indexPath.row]];
+    UIImageView *imageV = [[UIImageView alloc]init];
+    [imageV sd_setImageWithURL:[NSURL URLWithString:_ImageArray[indexPath.row].thumbnail_pic]];
     CGRect imageFrame = imageV.frame;
     imageFrame.size = _ItemSize;
     imageV.frame = imageFrame;

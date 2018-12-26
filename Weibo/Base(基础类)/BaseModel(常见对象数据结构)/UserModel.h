@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) NSInteger province;            //    用户所在省级ID
 @property (nonatomic,assign) NSInteger city;                //    用户所在城市ID
 @property (nonatomic,strong) NSString *location;            //    用户所在地
-@property (nonatomic,strong) NSString *description;         //    用户个人描述
+//@property (nonatomic,strong) NSString *description;         //    用户个人描述
 @property (nonatomic,strong) NSString *url;                 //    用户博客地址
 @property (nonatomic,strong) NSString *profile_image_url;   //    用户头像地址（中图），50×50像素
 @property (nonatomic,strong) NSString *profile_url;         //    用户的微博统一URL地址

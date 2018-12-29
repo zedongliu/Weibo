@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EEF01BA21D748F700148F18 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01B921D748F700148F18 /* CommentCell.m */; };
+		4EEF01BD21D74B6000148F18 /* CommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01BC21D74B6000148F18 /* CommentController.m */; };
+		4EEF01C021D74CEA00148F18 /* Comments_ToMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01BF21D74CEA00148F18 /* Comments_ToMe.m */; };
 		7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC91C3521917D8500892C28 /* AppDelegate.m */; };
 		7DC91C3921917D8500892C28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC91C3821917D8500892C28 /* ViewController.m */; };
 		7DC91C3C21917D8500892C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC91C3A21917D8500892C28 /* Main.storyboard */; };
@@ -74,6 +77,12 @@
 
 /* Begin PBXFileReference section */
 		464A9B8287C1726AB8FEDC13 /* libPods-Weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EEF01B821D748F700148F18 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		4EEF01B921D748F700148F18 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		4EEF01BB21D74B6000148F18 /* CommentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentController.h; sourceTree = "<group>"; };
+		4EEF01BC21D74B6000148F18 /* CommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentController.m; sourceTree = "<group>"; };
+		4EEF01BE21D74CEA00148F18 /* Comments_ToMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comments_ToMe.h; sourceTree = "<group>"; };
+		4EEF01BF21D74CEA00148F18 /* Comments_ToMe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comments_ToMe.m; sourceTree = "<group>"; };
 		7DC91C3121917D8500892C28 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC91C3421917D8500892C28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7DC91C3521917D8500892C28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -203,6 +212,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EEF01B421D7487D00148F18 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7DCA306021CA289400D1B4FA /* MessageRootVC.h */,
+				7DCA306121CA289400D1B4FA /* MessageRootVC.m */,
+				4EEF01BB21D74B6000148F18 /* CommentController.h */,
+				4EEF01BC21D74B6000148F18 /* CommentController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4EEF01B521D7489A00148F18 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF01B821D748F700148F18 /* CommentCell.h */,
+				4EEF01B921D748F700148F18 /* CommentCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4EEF01B621D748A200148F18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EEF01B721D748AA00148F18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF01BE21D74CEA00148F18 /* Comments_ToMe.h */,
+				4EEF01BF21D74CEA00148F18 /* Comments_ToMe.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7DC91C2821917D8500892C28 = {
 			isa = PBXGroup;
 			children = (
@@ -386,8 +431,10 @@
 		7DC91C7221917F8A00892C28 /* Message(消息) */ = {
 			isa = PBXGroup;
 			children = (
-				7DCA306021CA289400D1B4FA /* MessageRootVC.h */,
-				7DCA306121CA289400D1B4FA /* MessageRootVC.m */,
+				4EEF01B721D748AA00148F18 /* Model */,
+				4EEF01B621D748A200148F18 /* View */,
+				4EEF01B521D7489A00148F18 /* Cell */,
+				4EEF01B421D7487D00148F18 /* Controller */,
 			);
 			path = "Message(消息)";
 			sourceTree = "<group>";
@@ -873,6 +920,7 @@
 				7DC91CC82192D21700892C28 /* BaseTableView.m in Sources */,
 				7DCA305C21CA157E00D1B4FA /* Account.m in Sources */,
 				7DCA306521CA28A900D1B4FA /* FindRootVC.m in Sources */,
+				4EEF01BA21D748F700148F18 /* CommentCell.m in Sources */,
 				7DCA305F21CA286D00D1B4FA /* WeiboRootVC.m in Sources */,
 				7DCA307B21CCD8EE00D1B4FA /* CommentModel.m in Sources */,
 				7DCA307E21CCDA3100D1B4FA /* UserModel.m in Sources */,
@@ -892,6 +940,7 @@
 				7DC91CC52192CF9700892C28 /* BaseCollectionViewCell.m in Sources */,
 				7DC91CBD219297C100892C28 /* NSString+Util.m in Sources */,
 				7DCA306221CA289400D1B4FA /* MessageRootVC.m in Sources */,
+				4EEF01C021D74CEA00148F18 /* Comments_ToMe.m in Sources */,
 				7DC91CC22192CF7D00892C28 /* BaseTableViewCell.m in Sources */,
 				7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */,
 				7DC91C9C2192716200892C28 /* HttpRequest.m in Sources */,
@@ -900,6 +949,7 @@
 				7DCA307821CCD4CE00D1B4FA /* StatusModel.m in Sources */,
 				7DC91CAD21928E7900892C28 /* LoginViewController.m in Sources */,
 				7DCA308B21CCEC7200D1B4FA /* StatusCell.m in Sources */,
+				4EEF01BD21D74B6000148F18 /* CommentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

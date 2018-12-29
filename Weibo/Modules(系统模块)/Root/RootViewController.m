@@ -15,6 +15,8 @@
 #import "FindRootVC.h"
 #import "PersonalRootVC.h"
 
+#import "CommentController.h"
+
 @interface RootViewController ()
 
 //自定义的TabBar
@@ -49,7 +51,7 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     [self setupChildVC: [[WeiboRootVC alloc]init] withTitle:@"微博" andImage:@"tabbar_home" andSelectImage:@"tabbar_home_selected"];
-    [self setupChildVC: [[MessageRootVC alloc]init] withTitle:@"消息" andImage:@"tabbar_message_center" andSelectImage:@"tabbar_message_center_selected"];
+    [self setupChildVC: [[CommentController alloc]init] withTitle:@"消息" andImage:@"tabbar_message_center" andSelectImage:@"tabbar_message_center_selected"];
     [self setupChildVC: [[FindRootVC alloc]init] withTitle:@"发现" andImage:@"tabbar_discover" andSelectImage:@"tabbar_discover_selected"];
     [self setupChildVC: [[PersonalRootVC alloc]init] withTitle:@"我" andImage:@"tabbar_profile" andSelectImage:@"tabbar_profile_selected"];
     

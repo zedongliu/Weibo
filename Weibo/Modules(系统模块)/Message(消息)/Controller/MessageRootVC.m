@@ -7,6 +7,7 @@
 //
 
 #import "MessageRootVC.h"
+#import "CommentCell.h"
 
 @interface MessageRootVC ()
 

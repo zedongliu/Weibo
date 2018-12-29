@@ -1,31 +1,29 @@
 //
-//  WeiboRootViewController.m
+//  CommentController.m
 //  Weibo
 //
-//  Created by liuzedong on 2018/12/19.
-//  Copyright © 2018 liuzedong. All rights reserved.
+//  Created by Zedong on 2018/12/29.
+//  Copyright © 2018年 liuzedong. All rights reserved.
 //
 
-#import "WeiboRootVC.h"
-#import "Home_TimeLine.h"
-#import "StatusCell.h"
+#import "CommentController.h"
+#import "CommentCell.h"
+#import "Comments_ToMe.h"
 
-#import "RefreshHeaderView.h"
-
-@interface WeiboRootVC (){
-    Home_TimeLine  *homeTimeLineData;
+@interface CommentController (){
+    Comments_ToMe  *commentsToMeData;
     NSInteger currentPageNumber;
-    NSMutableArray <StatusModel*> *statusData;
+    NSMutableArray <StatusModel*> *commentData;
 }
 
 @end
 
-@implementation WeiboRootVC
+@implementation CommentController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     self->currentPageNumber = 1;
+    self->currentPageNumber = 1;
     
     [self setDataWithPage:self->currentPageNumber];
     [self setUI];
@@ -33,11 +31,11 @@
 
 - (void)setDataWithPage:(NSInteger)page{
     
-    self->statusData =  [NSMutableArray array];
-    self->homeTimeLineData = [[Home_TimeLine alloc]init];
-   
+    self->commentData =  [NSMutableArray array];
+    self->commentsToMeData = [[Comments_ToMe alloc]init];
     
-    NSString *url = @"statuses/home_timeline.json";
+    
+    NSString *url = @"comments/to_me.json";
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     [params setValue:[TokenTools getToken] forKey:@"access_token"];
     [params setValue: @(page) forKey:@"page"];
@@ -45,8 +43,8 @@
     
     [HttpRequest doGetWithURL:url withParams:params success:^(NSURLSessionDataTask * _Nonnull request, id  _Nonnull responseObject, Response * _Nonnull response) {
         
-        self->homeTimeLineData =  [Home_TimeLine mj_objectWithKeyValues:responseObject];
-        self->statusData = self->homeTimeLineData.statuses;
+        self->commentsToMeData =  [Comments_ToMe mj_objectWithKeyValues:responseObject];
+        self->commentData = self->commentsToMeData.comments;
         
         
         [self.tableView reloadData];
@@ -61,10 +59,10 @@
 
 
 - (void)setUI{
-
+    
     
     [self.view addSubview:self.tableView];
-
+    
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view).mas_offset(0);
         make.right.mas_equalTo(self.view).mas_offset(-0);
@@ -103,7 +101,7 @@
     return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self->statusData.count;
+    return self->commentData.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -122,18 +120,19 @@
     
     
     // 创建常量标识符
-    NSString *identifier = self->statusData[indexPath.section].idstr;
-    StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    NSString *identifier = self->commentData[indexPath.section].idstr;
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(! cell){
-        cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    [cell setData:self->statusData[indexPath.section]];
+    [cell setCommentData:self->commentData[indexPath.section]];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-   
+    
 }
+
 /*
 #pragma mark - Navigation
 

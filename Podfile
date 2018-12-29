@@ -8,4 +8,6 @@ target 'Weibo' do
     pod 'SVProgressHUD', '~> 2.1.2'
     pod 'MBProgressHUD','~>1.0.0'
     pod 'SDWebImage', '~>4.1.0'
+    pod 'TTTAttributedLabel'
+    
 end

@@ -10,6 +10,10 @@
 		4EEF01BA21D748F700148F18 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01B921D748F700148F18 /* CommentCell.m */; };
 		4EEF01BD21D74B6000148F18 /* CommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01BC21D74B6000148F18 /* CommentController.m */; };
 		4EEF01C021D74CEA00148F18 /* Comments_ToMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01BF21D74CEA00148F18 /* Comments_ToMe.m */; };
+		4EEF01CB21D75D8600148F18 /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF01C621D75D8500148F18 /* MLEmoji_Expression.plist */; };
+		4EEF01CC21D75D8600148F18 /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF01C721D75D8600148F18 /* MLEmoji_Expression.bundle */; };
+		4EEF01CD21D75D8600148F18 /* MLEmoji_ExpressionImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF01C821D75D8600148F18 /* MLEmoji_ExpressionImage.plist */; };
+		4EEF01CE21D75D8600148F18 /* MLEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01CA21D75D8600148F18 /* MLEmojiLabel.m */; };
 		7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC91C3521917D8500892C28 /* AppDelegate.m */; };
 		7DC91C3921917D8500892C28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC91C3821917D8500892C28 /* ViewController.m */; };
 		7DC91C3C21917D8500892C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC91C3A21917D8500892C28 /* Main.storyboard */; };
@@ -83,6 +87,11 @@
 		4EEF01BC21D74B6000148F18 /* CommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentController.m; sourceTree = "<group>"; };
 		4EEF01BE21D74CEA00148F18 /* Comments_ToMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comments_ToMe.h; sourceTree = "<group>"; };
 		4EEF01BF21D74CEA00148F18 /* Comments_ToMe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comments_ToMe.m; sourceTree = "<group>"; };
+		4EEF01C621D75D8500148F18 /* MLEmoji_Expression.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MLEmoji_Expression.plist; sourceTree = "<group>"; };
+		4EEF01C721D75D8600148F18 /* MLEmoji_Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLEmoji_Expression.bundle; sourceTree = "<group>"; };
+		4EEF01C821D75D8600148F18 /* MLEmoji_ExpressionImage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MLEmoji_ExpressionImage.plist; sourceTree = "<group>"; };
+		4EEF01C921D75D8600148F18 /* MLEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLEmojiLabel.h; sourceTree = "<group>"; };
+		4EEF01CA21D75D8600148F18 /* MLEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLEmojiLabel.m; sourceTree = "<group>"; };
 		7DC91C3121917D8500892C28 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC91C3421917D8500892C28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7DC91C3521917D8500892C28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -248,6 +257,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4EEF01C521D75D4600148F18 /* MLEmojiLabel */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF01C721D75D8600148F18 /* MLEmoji_Expression.bundle */,
+				4EEF01C621D75D8500148F18 /* MLEmoji_Expression.plist */,
+				4EEF01C821D75D8600148F18 /* MLEmoji_ExpressionImage.plist */,
+				4EEF01C921D75D8600148F18 /* MLEmojiLabel.h */,
+				4EEF01CA21D75D8600148F18 /* MLEmojiLabel.m */,
+			);
+			path = MLEmojiLabel;
+			sourceTree = "<group>";
+		};
 		7DC91C2821917D8500892C28 = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +338,7 @@
 		7DC91C6721917EA600892C28 /* ThirdPart(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				4EEF01C521D75D4600148F18 /* MLEmojiLabel */,
 			);
 			path = "ThirdPart(第三方)";
 			sourceTree = "<group>";
@@ -841,6 +863,9 @@
 			files = (
 				7DC91C4121917D8700892C28 /* LaunchScreen.storyboard in Resources */,
 				7DCA306D21CB76DE00D1B4FA /* Assets.xcassets in Resources */,
+				4EEF01CB21D75D8600148F18 /* MLEmoji_Expression.plist in Resources */,
+				4EEF01CC21D75D8600148F18 /* MLEmoji_Expression.bundle in Resources */,
+				4EEF01CD21D75D8600148F18 /* MLEmoji_ExpressionImage.plist in Resources */,
 				7DC91C3C21917D8500892C28 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,6 +954,7 @@
 				7DC91CBA2192942700892C28 /* LoginView.m in Sources */,
 				7DE6741321D1CB2C009AEDB2 /* StatusPicCollectionView.m in Sources */,
 				7DC91C9321918EAC00892C28 /* RootViewController.m in Sources */,
+				4EEF01CE21D75D8600148F18 /* MLEmojiLabel.m in Sources */,
 				7DC91C9921926EFE00892C28 /* BaseModel.m in Sources */,
 				7DCA306821CA28CB00D1B4FA /* PersonalRootVC.m in Sources */,
 				7DE6740621CE69CB009AEDB2 /* Home_TimeLine.m in Sources */,

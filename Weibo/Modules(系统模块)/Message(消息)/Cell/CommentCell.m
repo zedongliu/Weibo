@@ -72,7 +72,7 @@
     }];
     
     statusView = [[UIView alloc]init];
-    [statusView setBackgroundColor:COLOR_F2F2F2];
+    [statusView setBackgroundColor:COLOR_RepostBGC];
     [self.contentView addSubview:statusView];
     [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.contentView);

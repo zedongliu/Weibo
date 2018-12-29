@@ -22,6 +22,7 @@ PODS:
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
   - SVProgressHUD (2.1.2)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.12)
   - SDWebImage (~> 4.1.0)
   - SVProgressHUD (~> 2.1.2)
+  - TTTAttributedLabel
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -41,6 +43,7 @@ SPEC REPOS:
     - MJRefresh
     - SDWebImage
     - SVProgressHUD
+    - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -50,7 +53,8 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 6860a176daf908f43a999df8162e9d1187fa117e
+PODFILE CHECKSUM: f5e17bc48934c3d5cb8ce45eaae651d6989157fe
 
 COCOAPODS: 1.5.3

@@ -9,14 +9,16 @@
 #import "StatusCell.h"
 #import "StatusPicCollectionView.h"
 
-@interface StatusCell(){
+#import "MLEmojiLabel.h"
+
+@interface StatusCell()<MLEmojiLabelDelegate,UIGestureRecognizerDelegate>{
     
     UIImageView *avatar_ImgView;
     UILabel *name_Lab;
     UILabel *creatTime_Lab;
     UILabel *source_Lab;
     
-    UILabel *text_Lab;
+    MLEmojiLabel *text_Lab;
     
     UIView *picView;
     StatusPicCollectionView *pic_collectionView;
@@ -66,10 +68,18 @@
     }];
     
     // 内容
-    text_Lab = [[UILabel alloc]init];
+    text_Lab = [MLEmojiLabel new];
+    text_Lab.delegate = self;
+    text_Lab.lineBreakMode = NSLineBreakByTruncatingTail;
+    text_Lab.backgroundColor = [UIColor whiteColor];
+    text_Lab.isNeedAtAndPoundSign = YES;
+    text_Lab.disableEmoji = YES;
+    text_Lab.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
+    //    text_Lab.textInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    //    text_Lab.lineSpacing = 3.0f;
+    
     text_Lab.textColor = COLOR_ContentText;
     text_Lab.font = REGULARFONT(FONT_16);
-    text_Lab.textColor = [UIColor blackColor];
     text_Lab.numberOfLines = 0;
     [self.contentView addSubview:text_Lab];
     [text_Lab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -167,9 +177,8 @@
     [avatar_ImgView sd_setImageWithURL:[NSURL URLWithString:statusData.user.profile_image_url] placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
     name_Lab.text = statusData.user.screen_name;
     creatTime_Lab.text = [NSString stringWithFormat:@"%@ ",statusData.created_at];
-    text_Lab.text = statusData.text;
-    
-    
+//    text_Lab.text = statusData.text;
+    [text_Lab setText:statusData.text];
     
     CGFloat width = (KScreenWidth -Margin12*2 - 6)/3;
     CGFloat height = 0;

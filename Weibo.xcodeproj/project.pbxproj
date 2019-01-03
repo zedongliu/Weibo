@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EEF01BA21D748F700148F18 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01B921D748F700148F18 /* CommentCell.m */; };
+		4E572D1E21DDF65B005854C8 /* StatusDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E572D1D21DDF65B005854C8 /* StatusDetailVC.m */; };
+		4E572D2121DDF9BB005854C8 /* StatusContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E572D2021DDF9BB005854C8 /* StatusContentCell.m */; };
+		4E572D2421DE025D005854C8 /* Comments_Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E572D2321DE025D005854C8 /* Comments_Show.m */; };
+		4E572D2721DE0486005854C8 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E572D2621DE0486005854C8 /* CommentCell.m */; };
+		4EEF01BA21D748F700148F18 /* NewCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01B921D748F700148F18 /* NewCommentCell.m */; };
 		4EEF01BD21D74B6000148F18 /* CommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01BC21D74B6000148F18 /* CommentController.m */; };
 		4EEF01C021D74CEA00148F18 /* Comments_ToMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01BF21D74CEA00148F18 /* Comments_ToMe.m */; };
 		4EEF01CB21D75D8600148F18 /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF01C621D75D8500148F18 /* MLEmoji_Expression.plist */; };
@@ -81,8 +85,16 @@
 
 /* Begin PBXFileReference section */
 		464A9B8287C1726AB8FEDC13 /* libPods-Weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EEF01B821D748F700148F18 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
-		4EEF01B921D748F700148F18 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		4E572D1C21DDF65B005854C8 /* StatusDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusDetailVC.h; sourceTree = "<group>"; };
+		4E572D1D21DDF65B005854C8 /* StatusDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusDetailVC.m; sourceTree = "<group>"; };
+		4E572D1F21DDF9BB005854C8 /* StatusContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusContentCell.h; sourceTree = "<group>"; };
+		4E572D2021DDF9BB005854C8 /* StatusContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusContentCell.m; sourceTree = "<group>"; };
+		4E572D2221DE025D005854C8 /* Comments_Show.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comments_Show.h; sourceTree = "<group>"; };
+		4E572D2321DE025D005854C8 /* Comments_Show.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comments_Show.m; sourceTree = "<group>"; };
+		4E572D2521DE0486005854C8 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		4E572D2621DE0486005854C8 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		4EEF01B821D748F700148F18 /* NewCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewCommentCell.h; sourceTree = "<group>"; };
+		4EEF01B921D748F700148F18 /* NewCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewCommentCell.m; sourceTree = "<group>"; };
 		4EEF01BB21D74B6000148F18 /* CommentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentController.h; sourceTree = "<group>"; };
 		4EEF01BC21D74B6000148F18 /* CommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentController.m; sourceTree = "<group>"; };
 		4EEF01BE21D74CEA00148F18 /* Comments_ToMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comments_ToMe.h; sourceTree = "<group>"; };
@@ -235,8 +247,8 @@
 		4EEF01B521D7489A00148F18 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				4EEF01B821D748F700148F18 /* CommentCell.h */,
-				4EEF01B921D748F700148F18 /* CommentCell.m */,
+				4EEF01B821D748F700148F18 /* NewCommentCell.h */,
+				4EEF01B921D748F700148F18 /* NewCommentCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -676,6 +688,10 @@
 			children = (
 				7DCA308921CCEC7200D1B4FA /* StatusCell.h */,
 				7DCA308A21CCEC7200D1B4FA /* StatusCell.m */,
+				4E572D1F21DDF9BB005854C8 /* StatusContentCell.h */,
+				4E572D2021DDF9BB005854C8 /* StatusContentCell.m */,
+				4E572D2521DE0486005854C8 /* CommentCell.h */,
+				4E572D2621DE0486005854C8 /* CommentCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -685,6 +701,8 @@
 			children = (
 				7DE6740421CE69CB009AEDB2 /* Home_TimeLine.h */,
 				7DE6740521CE69CB009AEDB2 /* Home_TimeLine.m */,
+				4E572D2221DE025D005854C8 /* Comments_Show.h */,
+				4E572D2321DE025D005854C8 /* Comments_Show.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -694,6 +712,8 @@
 			children = (
 				7DCA305D21CA286C00D1B4FA /* WeiboRootVC.h */,
 				7DCA305E21CA286C00D1B4FA /* WeiboRootVC.m */,
+				4E572D1C21DDF65B005854C8 /* StatusDetailVC.h */,
+				4E572D1D21DDF65B005854C8 /* StatusDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -934,6 +954,7 @@
 			files = (
 				7DC91C3921917D8500892C28 /* ViewController.m in Sources */,
 				7DC91C9621926ECE00892C28 /* Response.m in Sources */,
+				4E572D2421DE025D005854C8 /* Comments_Show.m in Sources */,
 				7DC91C8521918D6F00892C28 /* BaseCollectionViewController.m in Sources */,
 				7DE6741021D1C90D009AEDB2 /* BaseCollectionView.m in Sources */,
 				7DC91CCC2193CC2100892C28 /* RefreshHeaderView.m in Sources */,
@@ -945,7 +966,7 @@
 				7DC91CC82192D21700892C28 /* BaseTableView.m in Sources */,
 				7DCA305C21CA157E00D1B4FA /* Account.m in Sources */,
 				7DCA306521CA28A900D1B4FA /* FindRootVC.m in Sources */,
-				4EEF01BA21D748F700148F18 /* CommentCell.m in Sources */,
+				4EEF01BA21D748F700148F18 /* NewCommentCell.m in Sources */,
 				7DCA305F21CA286D00D1B4FA /* WeiboRootVC.m in Sources */,
 				7DCA307B21CCD8EE00D1B4FA /* CommentModel.m in Sources */,
 				7DCA307E21CCDA3100D1B4FA /* UserModel.m in Sources */,
@@ -963,15 +984,18 @@
 				7DE6740D21CF8356009AEDB2 /* UserInfoCell.m in Sources */,
 				7DC91C9021918E3B00892C28 /* BaseNavigationController.m in Sources */,
 				7DC91C4421917D8700892C28 /* main.m in Sources */,
+				4E572D2121DDF9BB005854C8 /* StatusContentCell.m in Sources */,
 				7DC91CC52192CF9700892C28 /* BaseCollectionViewCell.m in Sources */,
 				7DC91CBD219297C100892C28 /* NSString+Util.m in Sources */,
 				7DCA306221CA289400D1B4FA /* MessageRootVC.m in Sources */,
 				4EEF01C021D74CEA00148F18 /* Comments_ToMe.m in Sources */,
 				7DC91CC22192CF7D00892C28 /* BaseTableViewCell.m in Sources */,
 				7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */,
+				4E572D1E21DDF65B005854C8 /* StatusDetailVC.m in Sources */,
 				7DC91C9C2192716200892C28 /* HttpRequest.m in Sources */,
 				7DCA308121CCE10900D1B4FA /* RemindModel.m in Sources */,
 				7DC91C8221918D5000892C28 /* BaseTableViewController.m in Sources */,
+				4E572D2721DE0486005854C8 /* CommentCell.m in Sources */,
 				7DCA307821CCD4CE00D1B4FA /* StatusModel.m in Sources */,
 				7DC91CAD21928E7900892C28 /* LoginViewController.m in Sources */,
 				7DCA308B21CCEC7200D1B4FA /* StatusCell.m in Sources */,

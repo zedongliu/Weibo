@@ -9,6 +9,7 @@
 #import "WeiboRootVC.h"
 #import "Home_TimeLine.h"
 #import "StatusCell.h"
+#import "StatusDetailVC.h"
 
 #import "RefreshHeaderView.h"
 
@@ -61,7 +62,7 @@
 
 
 - (void)setUI{
-
+    [self setTitle:@"微博"];
     
     [self.view addSubview:self.tableView];
 
@@ -132,7 +133,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-   
+    [self pushToVC:@"StatusDetailVC" withConstruction:^(__kindof StatusDetailVC * _Nonnull vc) {
+        vc.statusData = self->statusData[indexPath.section];
+    }];
 }
 /*
 #pragma mark - Navigation

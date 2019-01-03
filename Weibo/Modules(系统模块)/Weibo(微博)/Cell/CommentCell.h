@@ -2,8 +2,8 @@
 //  CommentCell.h
 //  Weibo
 //
-//  Created by Zedong on 2018/12/29.
-//  Copyright © 2018年 liuzedong. All rights reserved.
+//  Created by Zedong on 2019/1/3.
+//  Copyright © 2019年 liuzedong. All rights reserved.
 //
 
 #import "BaseTableViewCell.h"
@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CommentCell : BaseTableViewCell
 
--(void)setCommentData:(CommentModel*) commentData;
+- (void)setCommentData:(CommentModel*) commentData;
 
 @end
 

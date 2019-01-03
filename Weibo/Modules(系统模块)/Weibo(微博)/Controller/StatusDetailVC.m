@@ -1,24 +1,27 @@
 //
-//  CommentController.m
+//  StatusDetailVC.m
 //  Weibo
 //
-//  Created by Zedong on 2018/12/29.
-//  Copyright © 2018年 liuzedong. All rights reserved.
+//  Created by Zedong on 2019/1/3.
+//  Copyright © 2019年 liuzedong. All rights reserved.
 //
 
-#import "CommentController.h"
-#import "NewCommentCell.h"
-#import "Comments_ToMe.h"
+#import "StatusDetailVC.h"
+#import "StatusContentCell.h"
+#import "Comments_Show.h"
+#import "CommentModel.h"
+#import "StatusCell.h"
+#import "CommentCell.h"
 
-@interface CommentController (){
-    Comments_ToMe  *commentsToMeData;
+@interface StatusDetailVC (){
+    Comments_Show  *commentsDataShow;
+    NSMutableArray <CommentModel*> *commentsData;
     NSInteger currentPageNumber;
-    NSMutableArray <StatusModel*> *commentData;
 }
 
 @end
 
-@implementation CommentController
+@implementation StatusDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,36 +33,27 @@
 }
 
 - (void)setDataWithPage:(NSInteger)page{
-    
-    self->commentData =  [NSMutableArray array];
-    self->commentsToMeData = [[Comments_ToMe alloc]init];
-    
-    
-    NSString *url = @"comments/to_me.json";
+    NSString *url = @"comments/show.json";
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     [params setValue:[TokenTools getToken] forKey:@"access_token"];
+    [params setValue:@(self.statusData.id) forKey:@"id"];
     [params setValue: @(page) forKey:@"page"];
-    
     
     [HttpRequest doGetWithURL:url withParams:params success:^(NSURLSessionDataTask * _Nonnull request, id  _Nonnull responseObject, Response * _Nonnull response) {
         
-        self->commentsToMeData =  [Comments_ToMe mj_objectWithKeyValues:responseObject];
-        self->commentData = self->commentsToMeData.comments;
-        
-        
+        self->commentsDataShow =  [Comments_Show mj_objectWithKeyValues:responseObject];
+        self->commentsData = self->commentsDataShow.comments;
         [self.tableView reloadData];
         [self stopRefresh];
         
     } failure:^(NSURLSessionDataTask * _Nonnull request, NSError * _Nonnull error) {
-        
-        
         [self stopRefresh];
     }];
 }
 
-
-- (void)setUI{
-    
+-(void)setUI{
+    [self setTitle:@"微博正文"];
+    [self initNaviLeftButton:0];
     
     [self.view addSubview:self.tableView];
     
@@ -69,27 +63,25 @@
         make.bottom.mas_equalTo(self.view).mas_offset(-0);
     }];
     //去掉cell分割线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //设置代理
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
     // 下拉刷新和上拉加载
-    [self addRefreshHeader:self.tableView];
+//    [self addRefreshHeader:self.tableView];
     [self addRefreshFooter:self.tableView];
     
 }
-- (void)getBaseDataMethod{
-    self->currentPageNumber = 1;
-    [self setDataWithPage:self->currentPageNumber];
-}
+//- (void)getBaseDataMethod{
+//    self->currentPageNumber = 1;
+//    [self setDataWithPage:self->currentPageNumber];
+//}
 -(void)getMoreDataMethod{
     self->currentPageNumber++;
     [self setDataWithPage:self->currentPageNumber];
     
 }
-
 #pragma mark - tableView
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(section == 0){
@@ -101,10 +93,21 @@
     return nil;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self->commentData.count;
+    return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    NSInteger numberOfRow = 0;
+    switch (section) {
+        case 0:
+            numberOfRow = 1;
+            break;
+        case 1:
+            numberOfRow = self->commentsData.count;
+            break;
+        default:
+            break;
+    }
+    return numberOfRow;
 }
 // 使cell高度自适应  此方法必须重写
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -117,22 +120,31 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if(indexPath.section == 0){
     
-    
-    // 创建常量标识符
-    NSString *identifier = self->commentData[indexPath.section].idstr;
-    NewCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if(! cell){
-        cell = [[NewCommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        // 创建常量标识符
+        NSString *identifier = self.statusData.idstr;
+        StatusContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(! cell){
+            cell = [[StatusContentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        }
+        [cell setStatusData:self.statusData];
+        return cell;
+    }else{
+        // 创建常量标识符
+        NSString *identifier = self->commentsData[indexPath.row].idstr;
+        CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(! cell){
+            cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        }
+        [cell setCommentData:self->commentsData[indexPath.row]];
+        return cell;
     }
-    [cell setCommentData:self->commentData[indexPath.section]];
-    return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
 }
-
 /*
 #pragma mark - Navigation
 

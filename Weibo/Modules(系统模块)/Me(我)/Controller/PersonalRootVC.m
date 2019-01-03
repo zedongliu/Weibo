@@ -36,7 +36,7 @@ UINavigationControllerDelegate
 {
     [super viewWillAppear:animated];
     //返回时隐藏导航栏
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
 }
 

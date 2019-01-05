@@ -8,7 +8,7 @@
 
 #import "StatusCell.h"
 #import "StatusPicCollectionView.h"
-
+#import "StatusView.h"
 #import "MLEmojiLabel.h"
 
 @interface StatusCell()<MLEmojiLabelDelegate,UIGestureRecognizerDelegate>{
@@ -17,11 +17,18 @@
     UILabel *name_Lab;
     UILabel *creatTime_Lab;
     UILabel *source_Lab;
-    
     MLEmojiLabel *text_Lab;
-    
     UIView *picView;
     StatusPicCollectionView *pic_collectionView;
+    
+    UIView *retweeted_statusView; // 原微博
+    UIImageView *avatar_ImgView1;
+    UILabel *name_Lab1;
+    UILabel *creatTime_Lab1;
+    UILabel *source_Lab1;
+    MLEmojiLabel *text_Lab1;
+    UIView *picView1;
+    StatusPicCollectionView *pic_collectionView1;
     
     UIView *bottomView;
     UIButton *repostBtn;    // 转发
@@ -75,9 +82,6 @@
     text_Lab.isNeedAtAndPoundSign = YES;
     text_Lab.disableEmoji = YES;
     text_Lab.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
-    //    text_Lab.textInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-    //    text_Lab.lineSpacing = 3.0f;
-    
     text_Lab.textColor = COLOR_ContentText;
     text_Lab.font = REGULARFONT(FONT_16);
     text_Lab.numberOfLines = 0;
@@ -98,6 +102,46 @@
         make.height.mas_equalTo(SCALE_Height(0));
     }];
     
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    retweeted_statusView = [[UIView alloc]init];
+    [retweeted_statusView setBackgroundColor:COLOR_RepostBGC];
+    [self.contentView addSubview:retweeted_statusView];
+    [retweeted_statusView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left).mas_offset(0);
+        make.right.mas_equalTo(self.contentView.mas_right).mas_offset(-0);
+        make.top.mas_equalTo(self->picView.mas_bottom).mas_offset(Margin12);
+    }];
+    
+    // 内容
+    text_Lab1 = [MLEmojiLabel new];
+    text_Lab1.delegate = self;
+    text_Lab1.lineBreakMode = NSLineBreakByTruncatingTail;
+    text_Lab1.backgroundColor = COLOR_RepostBGC;
+    text_Lab1.isNeedAtAndPoundSign = YES;
+    text_Lab1.disableEmoji = YES;
+    text_Lab1.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
+    text_Lab1.textColor = COLOR_ContentText;
+    text_Lab1.font = REGULARFONT(FONT_16);
+    text_Lab1.numberOfLines = 0;
+    [retweeted_statusView addSubview:text_Lab1];
+    [text_Lab1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self->retweeted_statusView.mas_left).mas_offset(Margin12);
+        make.top.mas_equalTo(self->retweeted_statusView.mas_top).mas_offset(Margin12);
+        make.right.mas_equalTo(self->retweeted_statusView.mas_right).mas_offset(-Margin12);
+        make.bottom.mas_equalTo(self->retweeted_statusView.mas_bottom).mas_offset(-Margin12);
+    }];
+    
+    // 图片
+    picView1 = [[UIView alloc]init];
+    [self->retweeted_statusView addSubview:picView1];
+    [picView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self->retweeted_statusView.mas_left).mas_offset(Margin12);
+        make.right.mas_equalTo(self->retweeted_statusView.mas_right).mas_offset(-Margin12);
+        make.top.mas_equalTo(self->text_Lab1.mas_bottom).mas_offset(Margin12);
+        make.height.mas_equalTo(SCALE_Height(0));
+    }];
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 分割线
     UIView *line = [[UIView alloc]init];
     [line setBackgroundColor:COLOR_Line];
@@ -105,7 +149,7 @@
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView).mas_offset(Margin12);
         make.right.mas_equalTo(self.contentView).mas_offset(-Margin12);
-        make.top.mas_equalTo(self->picView.mas_bottom).mas_offset(10);
+        make.top.mas_equalTo(self->retweeted_statusView.mas_bottom).mas_offset(10);
         make.height.mas_equalTo(SCALE_Height(0.5));
     }];
     
@@ -177,7 +221,6 @@
     [avatar_ImgView sd_setImageWithURL:[NSURL URLWithString:statusData.user.profile_image_url] placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
     name_Lab.text = statusData.user.screen_name;
     creatTime_Lab.text = [NSString stringWithFormat:@"%@ ",statusData.created_at];
-//    text_Lab.text = statusData.text;
     [text_Lab setText:statusData.text];
     
     CGFloat width = (KScreenWidth -Margin12*2 - 6)/3;
@@ -193,12 +236,43 @@
     }else{
         height = 0;
     }
+    
+    if(statusData.pic_urls.count > 0){
+        [self->picView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(height);
+        }];
+        pic_collectionView = [[StatusPicCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth-Margin12*2, height) itemSize:CGSizeMake(width, width) withImageArr:statusData.pic_urls withIdentifier:statusData.idstr];
+        [self->picView addSubview:pic_collectionView];
+    }else{
+        [self->picView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(height);
+            make.top.mas_equalTo(self->text_Lab.mas_bottom).mas_offset(0);
+        }];
+    }
+    
+    
+    if(statusData.retweeted_status){
+        NSString *name = statusData.retweeted_status.user.screen_name;
+        [text_Lab1 setText:[NSString stringWithFormat:@"@%@:%@",name, statusData.retweeted_status.text]];
         
-    [self->picView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(height);
-    }];
-    pic_collectionView = [[StatusPicCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth-Margin12*2, height) itemSize:CGSizeMake(width, width) withImageArr:statusData.pic_urls withIdentifier:statusData.idstr];
-    [self->picView addSubview:pic_collectionView];
+//        if(statusData.retweeted_status.pic_urls.count > 0){
+//            [self->picView1 mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_equalTo(height);
+//            }];
+//            pic_collectionView1 = [[StatusPicCollectionView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth-Margin12*2, height) itemSize:CGSizeMake(width, width) withImageArr:statusData.retweeted_status.pic_urls withIdentifier:statusData.retweeted_status.idstr];
+//            [self->picView1 addSubview:pic_collectionView1];
+//        }else{
+//            [self->picView1 mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.height.mas_equalTo(0);
+//                make.top.mas_equalTo(self->text_Lab1.mas_bottom).mas_offset(0);
+//            }];
+//        }
+    }else{
+        [retweeted_statusView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(0);
+            make.top.mas_equalTo(self->picView.mas_bottom).mas_offset(0);
+        }];
+    }
     
     
     NSString *repostTitle = statusData.reposts_count>0?[NSString stringWithFormat:@"%ld", (long)statusData.reposts_count]:@"转发";

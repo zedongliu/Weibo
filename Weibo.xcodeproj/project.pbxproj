@@ -18,6 +18,7 @@
 		4EEF01CC21D75D8600148F18 /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF01C721D75D8600148F18 /* MLEmoji_Expression.bundle */; };
 		4EEF01CD21D75D8600148F18 /* MLEmoji_ExpressionImage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF01C821D75D8600148F18 /* MLEmoji_ExpressionImage.plist */; };
 		4EEF01CE21D75D8600148F18 /* MLEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF01CA21D75D8600148F18 /* MLEmojiLabel.m */; };
+		7D4E016121E078D900311643 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E016021E078D900311643 /* StatusView.m */; };
 		7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC91C3521917D8500892C28 /* AppDelegate.m */; };
 		7DC91C3921917D8500892C28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC91C3821917D8500892C28 /* ViewController.m */; };
 		7DC91C3C21917D8500892C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DC91C3A21917D8500892C28 /* Main.storyboard */; };
@@ -104,6 +105,8 @@
 		4EEF01C821D75D8600148F18 /* MLEmoji_ExpressionImage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MLEmoji_ExpressionImage.plist; sourceTree = "<group>"; };
 		4EEF01C921D75D8600148F18 /* MLEmojiLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLEmojiLabel.h; sourceTree = "<group>"; };
 		4EEF01CA21D75D8600148F18 /* MLEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLEmojiLabel.m; sourceTree = "<group>"; };
+		7D4E015F21E078D900311643 /* StatusView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
+		7D4E016021E078D900311643 /* StatusView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
 		7DC91C3121917D8500892C28 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC91C3421917D8500892C28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7DC91C3521917D8500892C28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -723,6 +726,8 @@
 			children = (
 				7DE6741121D1CB2C009AEDB2 /* StatusPicCollectionView.h */,
 				7DE6741221D1CB2C009AEDB2 /* StatusPicCollectionView.m */,
+				7D4E015F21E078D900311643 /* StatusView.h */,
+				7D4E016021E078D900311643 /* StatusView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -993,6 +998,7 @@
 				7DC91C3621917D8500892C28 /* AppDelegate.m in Sources */,
 				4E572D1E21DDF65B005854C8 /* StatusDetailVC.m in Sources */,
 				7DC91C9C2192716200892C28 /* HttpRequest.m in Sources */,
+				7D4E016121E078D900311643 /* StatusView.m in Sources */,
 				7DCA308121CCE10900D1B4FA /* RemindModel.m in Sources */,
 				7DC91C8221918D5000892C28 /* BaseTableViewController.m in Sources */,
 				4E572D2721DE0486005854C8 /* CommentCell.m in Sources */,
